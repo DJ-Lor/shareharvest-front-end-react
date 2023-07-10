@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import "./index.css"
 import NavigationBar from './components/NavigationBar';
 import Footer from './components/Footer';
+import HowItWorks from './pages/HowItWorks';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -14,6 +15,7 @@ root.render(
       <NavigationBar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/howitworks" element={<HowItWorks />} />
       </Routes>
       <Footer />
     </BrowserRouter>
