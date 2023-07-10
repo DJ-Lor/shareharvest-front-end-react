@@ -1,4 +1,5 @@
 import NewsletterForm from "./NewsletterForm";
+import { Link } from "react-router-dom";
 
 export default function Footer(){
 
@@ -13,22 +14,23 @@ export default function Footer(){
         </div>
 
         {/* Nav Reference */}
-        <div className="flex flex-col pt-8 md:pt-0 pb-4 md:pb-0 md:flex-row space-y-2 md:space-y-0 md:space-x-20 md:pr-16">
+        {/* <div className="flex flex-col pt-8 md:pt-0 pb-4 md:pb-0 md:flex-row space-y-2 md:space-y-0 md:space-x-20 md:pr-16"> */}
+          <nav className="text-lg flex flex-col pt-8 md:pt-0 pb-4 md:pb-0 md:flex-row space-y-2 md:space-y-0 md:space-x-20 md:pr-16">
           <ul className="text-lg space-y-3">
             <li>
-              <a href="/" className="hover:border-b-4 hover:border-pink hover:duration-100">
+              <Link to="/aboutus"className="hover:border-b-4 hover:border-pink hover:duration-100">
               About Us 
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="/" className="hover:border-b-4 hover:border-pink hover:duration-100">
+              <Link to="/howitworks" className="hover:border-b-4 hover:border-pink hover:duration-100">
               How It Works 
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="/" className="hover:border-b-4 hover:border-pink hover:duration-100">
+              <Link to="/contactus" className="hover:border-b-4 hover:border-pink hover:duration-100">
               Contact Us
-              </a>
+              </Link>
             </li>
            
           </ul>
@@ -44,7 +46,8 @@ export default function Footer(){
               </a>
             </li>
           </ul>
-        </div>
+          </nav>
+        {/* </div> */}
       </div>  
 
       <div className="flex flex-row wrap items-center justify-between pt-2">

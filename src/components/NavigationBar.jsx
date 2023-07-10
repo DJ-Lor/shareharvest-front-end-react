@@ -1,5 +1,6 @@
 import Button from "./Button";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 
 export default function NavigationBar(){
@@ -34,24 +35,26 @@ export default function NavigationBar(){
           >
 
           {/* Menu */}
+          <nav>
             <ul className="text-xl flex flex-col mt-20 md:mt-0 md:flex-row space-y-8 md:space-x-16 md:items-center">
               <li>
-                <a href="/" className="hover:border-b-4 hover:border-pink hover:duration-100">
+                <Link to="/howitworks" className="hover:border-b-4 hover:border-pink hover:duration-100">
                 How It Works 
-                </a>
+                </Link>
               </li>
               <li>
-              <a href="/" className="hover:border-b-4 hover:border-pink hover:duration-100">
+              <Link to="/aboutus" className="hover:border-b-4 hover:border-pink hover:duration-100">
               About Us 
-              </a>
+              </Link>
               </li>
       
               <li>
-              <a href="/" className="hover:border-b-4 hover:border-pink hover:duration-100">
+              <Link to="/contactus" className="hover:border-b-4 hover:border-pink hover:duration-100">
               Contact Us
-              </a>
+              </Link>
             </li>
             </ul>
+            </nav>
     
             
       </div>
