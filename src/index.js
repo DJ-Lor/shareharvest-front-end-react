@@ -7,6 +7,7 @@ import "./index.css"
 import NavigationBar from './components/NavigationBar';
 import Footer from './components/Footer';
 import HowItWorks from './pages/HowItWorks';
+import AboutUs from './pages/AboutUs';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -16,6 +17,7 @@ root.render(
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/howitworks" element={<HowItWorks />} />
+        <Route path="/aboutus" element={<AboutUs />} />
       </Routes>
       <Footer />
     </BrowserRouter>

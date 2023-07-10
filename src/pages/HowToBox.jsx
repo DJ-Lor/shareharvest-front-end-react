@@ -9,7 +9,7 @@ export default function HowToBox(){
      <p className="text-pink text-3xl font-bold mb-4">How It Works</p>
      <div>
      {/* To Source */}
-     <div className="space-y-2 md:space-x-8 flex flex-col md:flex-row">
+     <div className="space-y-2 md:space-x-8 flex items-center flex-col md:flex-row">
      <p className="text-pink text-xl font-bold mb-2 md:items-center flex">To Source</p>
      <Box number="01" title="Join" instruction="Sign up for FREE!" textColor="text-pink"/>
      <Box number="02" title="Profile" instruction="Personalise your community profile" textColor="text-pink"/>
@@ -17,7 +17,7 @@ export default function HowToBox(){
      <Box number="04" title="Connect & Collect" instruction="Comment and organise collection" textColor="text-pink"/>
      </div>
      {/* To Share */}
-     <div className="space-y-2 md:space-x-8 flex flex-col md:flex-row">
+     <div className="space-y-2 md:space-x-8 flex items-center flex-col md:flex-row">
      <p className="text-green text-xl font-bold mb-2 mt-10 md:items-center flex">To Share</p>
      <Box number="01" title="Join" instruction="Sign up for FREE!" textColor="text-green"/>
      <Box number="02" title="Profile" instruction="Personalise your community profile" textColor="text-green"/>
