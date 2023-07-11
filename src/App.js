@@ -37,7 +37,7 @@ export default function App() {
           <Route path="/forgotpassword" element={<ForgotPassword />} />
           <Route path="/passwordcodesent" element={<PasswordCodeSent />} />
           <Route path="/dashboard" element={<Dashbboard />} />
-          <Route path="/createlisting" element={<CreateListing />} />
+          <Route path="/create-listing" element={<CreateListing />} />
           <Route path="/listing/:id" element={<Listing/>} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

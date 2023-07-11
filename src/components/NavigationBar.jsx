@@ -6,7 +6,7 @@ export default function NavigationBar() {
   const [hamburger, setHamburger] = useState("menu");
   const [toggleDropDown, setToggleDropDown] = useState(false);
   // TODO: This should be loaded from storage when auth implemented
-  const [isAuthenticated] = useState(false);
+  const [isAuthenticated] = useState(true);
 
   function onToggleMenu() {
     if (hamburger === "menu") {
@@ -40,7 +40,7 @@ export default function NavigationBar() {
               <ul className="text-xl flex flex-col mt-20 md:mt-0 md:flex-row space-y-8 md:space-x-16 md:items-center">
                 <li>
                   <Link
-                    to="/"
+                    to="/create-listing"
                     onClick={onToggleMenu}
                     className="hover:border-b-4 hover:border-pinkc hover:duration-100"
                   >

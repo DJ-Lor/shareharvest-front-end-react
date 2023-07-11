@@ -1,6 +1,6 @@
 "use client";
 
-import { Label, TextInput, Textarea, FileInput } from "flowbite-react";
+import { Label, TextInput, Textarea } from "flowbite-react";
 import CustomButton from "../../components/CustomButton";
 
 export default function CreateListing() {
@@ -10,176 +10,69 @@ export default function CreateListing() {
         <p className=" text-brownc font-bold text-center text-lg px-4 pb-4">
           Create New Listing
         </p>
-       
-       {/* File Upload */}
-     
-    <label class="block mb-2 text-sm font-medium text-black" for="multiple_files">Upload Images</label>
-    <input class="block w-full text-sm text-black border border-gray-300 rounded-lg 
-    cursor-pointer bg-light" id="multiple_files" type="file" multiple/>
-   
-    
-       {/* Categories */}
-       <button
-            id="dropdown-button"
-            data-dropdown-toggle="dropdown"
-            className="flex-shrink-0 z-20 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center
-             text-black bg-greenc rounded hover:bg-greenc focus:ring-2 focus:outline-none
-              focus:ring-light"
-            type="button"
-          >
-            All categories
-            <svg
-              className="w-2.5 h-2.5 ml-2.5"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 10 6"
-            >
-              <path
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="m1 1 4 4 4-4"
-              />
-            </svg>
-          </button>
-          <div
-            id="dropdown"
-            className="z-20 hidden bg-greenc rounded-lg w-8/12"
-          >
-            <ul
-              className="py-2 text-sm text-black"
-              aria-labelledby="dropdown-button"
-            >
-              <li>
-                <button
-                  type="button"
-                  className="inline-flex w-full px-4 py-2 font-bold hover:bg-light"
-                >
-                  Vegetables
-                </button>
-              </li>
-              <li>
-                <button
-                  type="button"
-                  className="inline-flex w-full px-4 py-2 font-bold hover:bg-light"
-                >
-                  Fruits
-                </button>
-              </li>
-              <li>
-                <button
-                  type="button"
-                  className="inline-flex w-full px-4 py-2 font-bold hover:bg-light"
-                >
-                  Homemade Goods
-                </button>
-              </li>
-              <li>
-                <button
-                  type="button"
-                  className="inline-flex w-full px-4 py-2 font-bold hover:bg-light"
-                >
-                  Dairy/Eggs
-                </button>
-              </li>
-              <li>
-                <button
-                  type="button"
-                  className="inline-flex w-full px-4 py-2 font-bold hover:bg-light"
-                >
-                  Seedlings
-                </button>
-              </li>
-              <li>
-                <button
-                  type="button"
-                  className="inline-flex w-full px-4 py-2 font-bold hover:bg-light"
-                >
-                  Others
-                </button>
-              </li>
-            </ul>
-          </div>
 
-          <button
-            id="dropdown-button2"
-            data-dropdown-toggle="dropdown2"
-            className="flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center
-             text-black bg-purplec hover:bg-purplec rounded focus:ring-2 focus:outline-none
-              focus:ring-light"
-            type="button"
-          >
-            Choose Postcode
-            <svg
-              className="w-2.5 h-2.5 ml-2.5"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 10 6"
-            >
-              <path
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="m1 1 4 4 4-4"
-              />
-            </svg>
-          </button>
-          <div
-            id="dropdown2"
-            className="z-10 hidden bg-purplec rounded-lg w-8/12"
-          >
-            <ul
-              className="py-2 text-sm text-black"
-              aria-labelledby="dropdown-button2"
-            >
-              <li>
-                <button
-                  type="button"
-                  className="inline-flex w-full px-4 py-2 font-bold hover:bg-light"
-                >
-                  2043
-                </button>
-              </li>
-              <li>
-                <button
-                  type="button"
-                  className="inline-flex w-full px-4 py-2 font-bold hover:bg-light"
-                >
-                  2031
-                </button>
-              </li>
-              <li>
-                <button
-                  type="button"
-                  className="inline-flex w-full px-4 py-2 font-bold hover:bg-light"
-                >
-                  2000
-                </button>
-              </li>    
-            </ul>
-          </div>
+        {/* File Upload */}
 
+        <label
+          class="block mb-2 text-sm font-medium text-black"
+          for="multiple_files"
+        >
+          Upload Images
+        </label>
+        <input
+          class="block w-full text-sm text-black border border-gray-300 rounded-lg 
+    cursor-pointer bg-white"
+          id="multiple_files"
+          type="file"
+          multiple
+          required
+        />
+
+        {/* Categories */}
+        <div>
+        <label for="countries" class="block mb-2 text-sm font-medium text-brownc">Select Category</label>
+        <select id="countries" class="bg-white text-brownc border border-gray-300 text-sm rounded-lg
+         focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 required">
+ 
+            <option>Vegetables</option>
+            <option>Fruits</option>
+            <option>Dairy / Eggs</option>
+            <option>Homemade Goods</option>
+            <option>Seedlings</option>
+            <option>Others</option>
+          </select>
+        </div>
+
+         {/* Post Code */}
+         <div>
+        <label for="countries" class="block mb-2 text-sm font-medium text-brownc">Select Postcode</label>
+        <select id="countries" class="bg-white text-browncborder border-gray-300 text-sm rounded-lg
+         focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 required">
+ 
+            <option>3000</option>
+            <option>3045</option>
+            <option>2000</option>
+            <option>5000</option>
+            <option>2034</option>
+            <option>3865</option>
+          </select>
+        </div>
 
         <div className="mb-2 block">
-            <Label
-              htmlFor="title1"
-              value="Title"
-              className=" text-brownc"
-              required
-            />
-          </div>
-          <TextInput
-            id="title1"
-            placeholder="title"
-            required
-            type="text"
+          <Label
+            htmlFor="title1"
+            value="Title"
             className=" text-brownc"
+            required
           />
-   
+        </div>
+        <TextInput
+          id="title1"
+          placeholder="title"
+          required
+          type="text"
+          className=" text-brownc"
+        />
         <div>
           <div className="mb-2 block">
             <Label
@@ -212,25 +105,19 @@ export default function CreateListing() {
             className=" text-brownc"
           />
         </div>
-        <div
-      className="max-w-md"
-      id="textarea"
-    >
-      <div className="mb-2 block">
-        <Label
-          htmlFor="description"
-          value="Description"
-        />
-      </div>
-      <Textarea
-        id="description"
-        placeholder="e.g. need to pick apples from tree"
-        required
-        rows={4}
-        className="text-sm"
-      />
-    </div>
-       
+        <div className="max-w-md" id="textarea">
+          <div className="mb-2 block">
+            <Label htmlFor="description" value="Description" />
+          </div>
+          <Textarea
+            id="description"
+            placeholder="e.g. need to pick apples from tree"
+            required
+            rows={4}
+            className="text-sm"
+          />
+        </div>
+
         <CustomButton type="submit" className="bg-pinkc">
           Post Listing
         </CustomButton>
