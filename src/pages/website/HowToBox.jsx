@@ -1,4 +1,4 @@
-import CustomBox from "../components/CustomBox";
+import CustomBox from "../../components/CustomBox";
 
 export default function HowToBox() {
   return (

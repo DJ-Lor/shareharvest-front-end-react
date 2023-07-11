@@ -1,4 +1,4 @@
-import CallToAction from "../components/CallToAction";
+import CallToAction from "../../components/CallToAction";
 import HowToBox from "./HowToBox";
 
 export default function HowItWorks() {
