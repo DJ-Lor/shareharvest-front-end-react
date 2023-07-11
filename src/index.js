@@ -10,6 +10,9 @@ import HowItWorks from './pages/HowItWorks';
 import AboutUs from './pages/AboutUs';
 import ContactUs from './pages/ContactUs';
 import SignUp from './pages/SignUp';
+import LogIn from './pages/LogIn';
+import ForgotPassword from './pages/ForgotPassword';
+import PasswordCodeSent from './pages/PasswordCodeSent';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -23,6 +26,9 @@ root.render(
         <Route path="/aboutus" element={<AboutUs />} />
         <Route path="/contactus" element={<ContactUs />} />
         <Route path="/signup" element={<SignUp />} />
+        <Route path="/login" element={<LogIn />} />
+        <Route path="/forgotpassword" element={<ForgotPassword />} />
+        <Route path="/passwordcodesent" element={<PasswordCodeSent />} />
       </Routes>
       <Footer />
     </BrowserRouter>
