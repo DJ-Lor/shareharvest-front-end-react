@@ -2,7 +2,8 @@
 
 module.exports = {
   content: [
-    "./src/**/*.{js,jsx,ts,tsx}"
+    "./src/**/*.{js,jsx,ts,tsx}",
+    'node_modules/flowbite-react/**/*.{js,jsx,ts,tsx}'
   ],
   theme: {
     screens: {
@@ -12,14 +13,14 @@ module.exports = {
       xl: "1440px",
     },
     colors: {
-      pink: "#E83B72",
-      pink2: "#C72C5D",
-      brown: "#31212F",
-      grey: "#F5F5F5",
-      purple: "#FEB5F0",
-      yellow: "#FAC90A",
-      green: "#4E9715",
-      orange: "#F18333",
+      pinkc: "#E83B72",
+      pink2c: "#C72C5D",
+      brownc: "#31212F",
+      greyc: "#F5F5F5",
+      purplec: "#FEB5F0",
+      yellowc: "#FAC90A",
+      greenc: "#4E9715",
+      orangec: "#F18333",
       white: "#FFFFFF",
       light: "#FBF7FA",
       black: "#000000"
@@ -52,6 +53,7 @@ module.exports = {
       },
     },
   },
+  plugins: [require('flowbite/plugin')],
 };
 
 

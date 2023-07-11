@@ -1,6 +1,5 @@
-import { useState } from "react"
-import { ArrowLongRightIcon } from '@heroicons/react/24/outline'
-
+import { useState } from "react";
+// import { ArrowLongRightIcon } from '@heroicons/react/24/outline'
 
 export default function NewsletterForm() {
   const [email, setEmail] = useState("");
@@ -9,17 +8,14 @@ export default function NewsletterForm() {
     <div>
       <form>
         <span>
-          <input type="text" 
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          <input
+            type="text"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
-        
         </span>
-      </form> 
+      </form>
     </div>
-  )
+  );
 }
-
-
-

@@ -9,6 +9,7 @@ import Footer from './components/Footer';
 import HowItWorks from './pages/HowItWorks';
 import AboutUs from './pages/AboutUs';
 import ContactUs from './pages/ContactUs';
+import SignUp from './pages/SignUp';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -21,6 +22,7 @@ root.render(
         <Route path="/howitworks" element={<HowItWorks />} />
         <Route path="/aboutus" element={<AboutUs />} />
         <Route path="/contactus" element={<ContactUs />} />
+        <Route path="/signup" element={<SignUp />} />
       </Routes>
       <Footer />
     </BrowserRouter>
