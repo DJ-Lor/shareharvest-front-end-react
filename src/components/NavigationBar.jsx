@@ -1,4 +1,4 @@
-import Button from "./Button";
+import CustomButton from "./CustomButton";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -77,7 +77,7 @@ export default function NavigationBar() {
               Log In
             </a>
           </p>
-          <Button>Sign Up</Button>
+          <CustomButton>Sign Up</CustomButton>
         </div>
       </div>
 
