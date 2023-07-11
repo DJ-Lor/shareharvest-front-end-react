@@ -1,27 +1,28 @@
+"use client";
 
+import { Label, TextInput, Textarea, FileInput } from "flowbite-react";
+import CustomButton from "../../components/CustomButton";
 
-export default function Dashbboard() {
+export default function CreateListing() {
   return (
-    <div>
-      
-      {/* Greeting */}
-
-      <button
-      type="button"
-      className="bg-pinkc hover:bg-pink2c text-black text-xs m:text-md p-1 px-3 rounded-full"
-    >
-    Hello, INSERT!
-    </button>
-
-    {/* Search Bar */}
-      <form className="mt-4">
-        <div className="flex flex-col-reverse">      
-        <div className="flex justify-center space-x-4 pt-1">
-          {/* Categories */}
-          <button
+    <div className="bg-brownc px-10 md:px-12 lg:px-14 py-10 md:py-16 lg:py-10 ">
+      <form className="flex max-w-md flex-col gap-4 bg-light box-border px-6 py-12 rounded-md">
+        <p className=" text-brownc font-bold text-center text-lg px-4 pb-4">
+          Create New Listing
+        </p>
+       
+       {/* File Upload */}
+     
+    <label class="block mb-2 text-sm font-medium text-black" for="multiple_files">Upload Images</label>
+    <input class="block w-full text-sm text-black border border-gray-300 rounded-lg 
+    cursor-pointer bg-light" id="multiple_files" type="file" multiple/>
+   
+    
+       {/* Categories */}
+       <button
             id="dropdown-button"
             data-dropdown-toggle="dropdown"
-            className="flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center
+            className="flex-shrink-0 z-20 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center
              text-black bg-greenc rounded hover:bg-greenc focus:ring-2 focus:outline-none
               focus:ring-light"
             type="button"
@@ -45,7 +46,7 @@ export default function Dashbboard() {
           </button>
           <div
             id="dropdown"
-            className="z-10 hidden bg-greenc rounded-lg w-44"
+            className="z-20 hidden bg-greenc rounded-lg w-8/12"
           >
             <ul
               className="py-2 text-sm text-black"
@@ -102,9 +103,7 @@ export default function Dashbboard() {
             </ul>
           </div>
 
-            {/* Postcode */}
-   
-            <button
+          <button
             id="dropdown-button2"
             data-dropdown-toggle="dropdown2"
             className="flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center
@@ -131,7 +130,7 @@ export default function Dashbboard() {
           </button>
           <div
             id="dropdown2"
-            className="z-10 hidden bg-purplec rounded-lg w-44"
+            className="z-10 hidden bg-purplec rounded-lg w-8/12"
           >
             <ul
               className="py-2 text-sm text-black"
@@ -163,44 +162,78 @@ export default function Dashbboard() {
               </li>    
             </ul>
           </div>
-          </div>
 
 
-
-      
-
-        {/* Search Bar */}
-          <div className="relative w-full">
-            <input
-              type="search"
-              id="search-dropdown"
-              className="block p-2.5 w-full z-20 text-sm text-black bg-light rounded-lg focus:ring-light focus:border-light"
-              placeholder="I am looking for ..."
+        <div className="mb-2 block">
+            <Label
+              htmlFor="title1"
+              value="Title"
+              className=" text-brownc"
               required
             />
-            <button
-              type="submit"
-              className="absolute top-0 right-0 p-2.5 text-sm font-medium h-full text-white bg-blue-700 rounded-r-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-            >
-              <svg
-                className="w-4 h-4"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 20 20"
-              >
-                <path
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
-                />
-              </svg>
-              <span className="sr-only">Search</span>
-            </button>
           </div>
+          <TextInput
+            id="title1"
+            placeholder="title"
+            required
+            type="text"
+            className=" text-brownc"
+          />
+   
+        <div>
+          <div className="mb-2 block">
+            <Label
+              htmlFor="itemname1"
+              value="Item Name"
+              className=" text-brownc"
+            />
+          </div>
+          <TextInput
+            id="itemname1"
+            placeholder="item name"
+            required
+            type="text"
+            className=" text-brownc"
+          />
         </div>
+        <div>
+          <div className="mb-2 block">
+            <Label
+              htmlFor="quantity1"
+              value="Quantity(approx # pcs)"
+              className=" text-brownc"
+            />
+          </div>
+          <TextInput
+            id="quantity1"
+            required
+            placeholder="e.g. 20pcs or 3 bags"
+            type="password"
+            className=" text-brownc"
+          />
+        </div>
+        <div
+      className="max-w-md"
+      id="textarea"
+    >
+      <div className="mb-2 block">
+        <Label
+          htmlFor="description"
+          value="Description"
+        />
+      </div>
+      <Textarea
+        id="description"
+        placeholder="e.g. need to pick apples from tree"
+        required
+        rows={4}
+        className="text-sm"
+      />
+    </div>
+       
+        <CustomButton type="submit" className="bg-pinkc">
+          Post Listing
+        </CustomButton>
       </form>
     </div>
   );

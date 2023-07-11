@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 export default function Footer() {
   return (
     <div className=" text-white bg-brownc font-google px-6 md:px-12 lg:px-14 py-10 md:py-16 lg:py-10">
-      <div className="flex flex-col md:flex-row wrap md:justify-between">
+      <div className="flex flex-col md:flex-row wrap md:grid grid-cols-3">
         {/* Newsletter  */}
-        <div className="">
+        <div className="col-span-2">
           <p className="text-2xl md:text-3xl font-bold">
             Sign Up for Newsletters
           </p>

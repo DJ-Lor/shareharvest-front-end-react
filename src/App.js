@@ -1,5 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import "./App.css"
+import { useState } from "react";
 // Pages Import ---
 import Home from './pages/website/Home';
 import HowItWorks from './pages/website/HowItWorks';
@@ -11,11 +12,17 @@ import LogIn from './pages/auth/LogIn';
 import ForgotPassword from './pages/auth/ForgotPassword';
 import PasswordCodeSent from './pages/auth/PasswordCodeSent';
 import Dashbboard from './pages/Dashboard';
+import CreateListing from "./pages/auth/CreateListing";
+
 // Components Import ---
 import NavigationBar from './components/NavigationBar';
 import Footer from './components/Footer';
+import Listing from "./pages/auth/Listing";
 
 export default function App() {
+  // TODO: This should be loaded from storage when auth implemented
+  const [isAuthenticated] = useState(false);
+
   return (
     <div id="main-app-layout" className="p-2 bg-brownc min-h-screen">
       <NavigationBar />
@@ -30,10 +37,13 @@ export default function App() {
           <Route path="/forgotpassword" element={<ForgotPassword />} />
           <Route path="/passwordcodesent" element={<PasswordCodeSent />} />
           <Route path="/dashboard" element={<Dashbboard />} />
+          <Route path="/createlisting" element={<CreateListing />} />
+          <Route path="/listing/:id" element={<Listing/>} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </div>
-      <Footer />
+      {isAuthenticated ? (null) : (
+      <Footer />)}
     </div>
   );
 }

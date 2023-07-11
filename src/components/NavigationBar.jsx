@@ -113,7 +113,7 @@ export default function NavigationBar() {
 
         {/* Login and Sign Up */}
         <div
-          className={`z-50 flex flex-row space-x-4 items-center md:static fixed md:bottom-0 md:left-0 bottom-10 left-1/2 -translate-x-1/2 ${
+          className={`z-50 flex flex-row w-full items-center md:static fixed left-0 md:bottom-0 bottom-10 justify-center  ${
             toggleDropDown ? " " : "hidden md:block"
           }`}
         >
@@ -121,7 +121,7 @@ export default function NavigationBar() {
             <Link
               to="/signup"
               onClick={onToggleMenu}
-              className="bg-pinkc hover:bg-pink2c text-white text-lg m:text-xl pt-2 pb-1 px-8 rounded-full"
+              className="bg-pinkc hover:bg-pink2c text-white text-lg m:text-xl pt-2 pb-1 px-4 rounded-full"
             >
               Log Out
             </Link>
@@ -130,14 +130,14 @@ export default function NavigationBar() {
               <Link
                 to="/login"
                 onClick={onToggleMenu}
-                className="hover:border-b-4 hover:border-pinkc hover:duration-100 pr-5"
+                className="hover:border-b-4 hover:border-pinkc hover:duration-100 mr-4"
               >
                 Log In
               </Link>
               <Link
                 to="/signup"
                 onClick={onToggleMenu}
-                className="bg-pinkc hover:bg-pink2c text-white text-lg m:text-xl pt-2 pb-1 px-8 rounded-full"
+                className="bg-pinkc hover:bg-pink2c text-white text-lg m:text-xl pt-2 pb-1 px-4 rounded-full"
               >
                 Sign Up
               </Link>

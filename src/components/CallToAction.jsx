@@ -8,7 +8,7 @@ export default function CallToAction() {
           Building sustainable communities one homegrown excess produce at a
           time.
         </p>
-        <p className="text-end pr-4 md:pt-4 text-lg md:text-2xl">
+        <p className="text-end pr-4 pt-4 md:pt-8 text-lg md:text-2xl">
           <a href="/" className="border-b-4 border-pinkc">
             Get Started
           </a>

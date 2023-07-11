@@ -1,21 +1,26 @@
-import { useState } from "react";
-// import { ArrowLongRightIcon } from '@heroicons/react/24/outline'
+'use client';
+
+import { TextInput } from 'flowbite-react';
+import { HiArrowSmRight } from 'react-icons/hi';
 
 export default function NewsletterForm() {
-  const [email, setEmail] = useState("");
 
   return (
-    <div>
-      <form>
-        <span>
-          <input
-            type="text"
-            placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </span>
-      </form>
-    </div>
-  );
+    <div className="max-w-md">
+    <TextInput
+      id="email4"
+      placeholder="Email"
+      rightIcon={HiArrowSmRight}
+      type="email"
+    />
+  </div>
+)
 }
+
+
+
+
+
+
+
+
