@@ -1,7 +1,7 @@
 import { Button, Select, TextInput } from "flowbite-react";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
 // Hook Import ---
-import { useAuth } from "../hooks/useAuth";
+import { useAuth } from "../../hooks/useAuth";
 
 export default function Dashboard() {
   const { user } = useAuth();
@@ -48,7 +48,7 @@ export default function Dashboard() {
           {/* Search Bar */}
           <TextInput
             id="email4"
-            placeholder="name@flowbite.com"
+            placeholder="What are you looking for?"
             required
             rightIcon={MagnifyingGlassIcon}
             type="email"

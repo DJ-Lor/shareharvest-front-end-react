@@ -9,6 +9,9 @@ export default function NavigationBar() {
   const [hamburger, setHamburger] = useState("menu");
   const [toggleDropDown, setToggleDropDown] = useState(false);
   const { isAuthenticated } = useAuth();
+  const [loading, setLoading] = useState(false);
+
+  const auth = useAuth();
 
   function onToggleMenu() {
     if (hamburger === "menu") {
@@ -19,6 +22,14 @@ export default function NavigationBar() {
       setToggleDropDown(false);
     }
   }
+
+  const handleButtonSubmit = (event) => {
+    event.preventDefault();
+    setLoading(true);
+    auth.logout().finally(() => {
+      setLoading(false);
+    });
+  };
 
   return (
     <div className="text-white bg-brownc font-google px-6 md:px-12 lg:px-14 py-10 md:py-16 lg:py-10 flex wrap items-center justify-between">
@@ -121,11 +132,11 @@ export default function NavigationBar() {
         >
           {isAuthenticated ? (
             <Link
-              to="/signup"
-              onClick={onToggleMenu}
+              to="/logout"
+              onClick={handleButtonSubmit}
               className="bg-pinkc hover:bg-pink2c text-white text-lg m:text-xl pt-2 pb-1 px-4 rounded-full"
             >
-              Log Out
+              Log Out 
             </Link>
           ) : (
             <div>

@@ -102,14 +102,15 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  const logout = async (name, email, password) => {
+  const logout = async () => {
     try {
       localStorage.removeItem("token");
       dispatch({
         type: "LOGOUT",
       });
+      toast.success("Log out successful");
     } catch (err) {
-      console.error(err);
+      toast.error("There has been an error");
     }
   };
 

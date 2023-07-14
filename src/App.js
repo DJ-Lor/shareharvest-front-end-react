@@ -13,8 +13,9 @@ import NotFoundPage from './pages/website/NotFoundPage';
 import SignUp from './pages/auth/SignUp';
 import LogIn from './pages/auth/LogIn';
 import ForgotPassword from './pages/auth/ForgotPassword';
-import Dashbboard from './pages/Dashboard';
+import Dashbboard from './pages/auth/Dashboard';
 import CreateListing from "./pages/auth/CreateListing";
+
 
 // Components Import ---
 import NavigationBar from './components/NavigationBar';
