@@ -9,7 +9,6 @@ export default function NavigationBar() {
   const [hamburger, setHamburger] = useState("menu");
   const [toggleDropDown, setToggleDropDown] = useState(false);
   const { isAuthenticated } = useAuth();
-  const [loading, setLoading] = useState(false);
 
   const auth = useAuth();
 
@@ -25,9 +24,8 @@ export default function NavigationBar() {
 
   const handleButtonSubmit = (event) => {
     event.preventDefault();
-    setLoading(true);
     auth.logout().finally(() => {
-      setLoading(false);
+      onToggleMenu();
     });
   };
 
@@ -136,7 +134,7 @@ export default function NavigationBar() {
               onClick={handleButtonSubmit}
               className="bg-pinkc hover:bg-pink2c text-white text-lg m:text-xl pt-2 pb-1 px-4 rounded-full"
             >
-              Log Out 
+              Log Out
             </Link>
           ) : (
             <div>
