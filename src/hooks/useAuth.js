@@ -76,9 +76,13 @@ export const AuthProvider = ({ children }) => {
     };
 
     try {
-      const res = await axios.post(`${process.env.REACT_APP_API_URL}/users/login`, { email, password }, config);
+      const res = await axios.post(`${process.env.REACT_APP_API_URL}/users/login`, 
+      { email, password }, 
+      config
+      );
       localStorage.setItem("token", res.data.token);
       await getUserInfo();
+      toast.success("Log in successful")
     } catch (err) {
       console.error(err);
     }
@@ -90,13 +94,14 @@ export const AuthProvider = ({ children }) => {
     };
 
     try {
-      const response = await axios.post(
+      const res = await axios.post(
         `${process.env.REACT_APP_API_URL}/users/signup`,
         { username, email, password, postcode },
         config
       );
-      localStorage.setItem("token", response.data.token);
+      localStorage.setItem("token", res.data.token);
       await getUserInfo();
+      toast.success("New profile created")
     } catch (err) {
       toast.error("There has been an error");
     }
