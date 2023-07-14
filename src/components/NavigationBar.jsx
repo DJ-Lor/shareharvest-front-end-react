@@ -2,11 +2,13 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { XMarkIcon, Bars3Icon } from "@heroicons/react/24/solid";
 
+// Hook Import ---
+import { useAuth } from "../hooks/useAuth";
+
 export default function NavigationBar() {
   const [hamburger, setHamburger] = useState("menu");
   const [toggleDropDown, setToggleDropDown] = useState(false);
-  // TODO: This should be loaded from storage when auth implemented
-  const [isAuthenticated] = useState(true);
+  const { isAuthenticated } = useAuth();
 
   function onToggleMenu() {
     if (hamburger === "menu") {

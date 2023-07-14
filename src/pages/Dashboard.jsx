@@ -1,57 +1,59 @@
+import { Button, Select, TextInput } from "flowbite-react";
+import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
+// Hook Import ---
+import { useAuth } from "../hooks/useAuth";
 
+export default function Dashboard() {
+  const { user } = useAuth();
 
-export default function Dashbboard() {
   return (
     <div>
-      
       {/* Greeting */}
 
-      <button
-      type="button"
-      className="bg-pinkc hover:bg-pink2c text-black text-xs m:text-md p-1 px-3 rounded-full"
-    >
-    Hello, INSERT!
-    </button>
+      <Button type="button" className="bg-pinkc" pill>
+        Hello, {user?.username}!
+      </Button>
 
-    {/* Search Bar Main*/}
+      {/* Search Bar Main*/}
       <form className="mt-4">
-        <div className="flex flex-col-reverse">      
-        <div className="flex justify-center space-x-4 pt-1">
-        {/* Categories */}
-        <div>
-        <select id="countries" class="bg-greenc text-brownc text-sm rounded-lg
-         focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 required">
-            <option selected className="text-sm font-medium text-brownc">All Categories</option>
-            <option>Vegetables</option>
-            <option>Fruits</option>
-            <option>Dairy / Eggs</option>
-            <option>Homemade Goods</option>
-            <option>Seedlings</option>
-            <option>Others</option>
-          </select>
-        </div>
+        <div className="flex flex-col-reverse">
+          <div className="flex justify-center space-x-4 pt-1">
+            {/* Categories */}
+            <div>
+              <Select id="countries">
+                <option defaultValue>All Categories</option>
+                <option>Vegetables</option>
+                <option>Fruits</option>
+                <option>Dairy / Eggs</option>
+                <option>Homemade Goods</option>
+                <option>Seedlings</option>
+                <option>Others</option>
+              </Select>
+            </div>
 
-         {/* Post Code */}
-         <div>
-        <select id="countries" class="bg-purplec text-browncborder border-gray-300 text-sm rounded-lg
-         focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 required">
-            <option selected className="text-sm font-medium text-black">AU Postcode</option>
-            <option>3000</option>
-            <option>3045</option>
-            <option>2000</option>
-            <option>5000</option>
-            <option>2034</option>
-            <option>3865</option>
-          </select>
-        </div>
+            {/* Post Code */}
+            <div>
+              <Select id="countries">
+                <option defaultValue>AU Postcode</option>
+                <option>3000</option>
+                <option>3045</option>
+                <option>2000</option>
+                <option>5000</option>
+                <option>2034</option>
+                <option>3865</option>
+              </Select>
+            </div>
           </div>
 
-
-
-      
-
-        {/* Search Bar */}
-          <div className="relative w-full">
+          {/* Search Bar */}
+          <TextInput
+            id="email4"
+            placeholder="name@flowbite.com"
+            required
+            rightIcon={MagnifyingGlassIcon}
+            type="email"
+          />
+          {/* <div className="relative w-full">
             <input
               type="search"
               id="search-dropdown"
@@ -80,7 +82,7 @@ export default function Dashbboard() {
               </svg>
               <span className="sr-only">Search</span>
             </button>
-          </div>
+          </div> */}
         </div>
       </form>
     </div>

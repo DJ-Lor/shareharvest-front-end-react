@@ -84,27 +84,11 @@ export default function CreateListing() {
           <TextInput
             id="itemname1"
             placeholder="item name"
-            required
             type="text"
             className=" text-brownc"
           />
         </div>
-        <div>
-          <div className="mb-2 block">
-            <Label
-              htmlFor="quantity1"
-              value="Quantity(approx # pcs)"
-              className=" text-brownc"
-            />
-          </div>
-          <TextInput
-            id="quantity1"
-            required
-            placeholder="e.g. 20pcs or 3 bags"
-            type="password"
-            className=" text-brownc"
-          />
-        </div>
+        
         <div className="max-w-md" id="textarea">
           <div className="mb-2 block">
             <Label htmlFor="description" value="Description" />
