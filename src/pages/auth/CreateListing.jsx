@@ -1,39 +1,86 @@
-"use client";
+import { Label, TextInput, Textarea, Button } from "flowbite-react";
+import { useState } from "react";
+import { createListing } from "../../helper/createListing";
+import { Navigate } from "react-router-dom";
 
-import { Label, TextInput, Textarea } from "flowbite-react";
-import CustomButton from "../../components/CustomButton";
 
 export default function CreateListing() {
+  // Setup local state
+  const [category, setCategory] = useState("")
+  const [postcode, setPostcode] = useState("")
+  const [title, setTitle] = useState("")
+  const [description, setDescription] = useState("")
+  const [loading, setLoading] = useState(false)
+  const [listCreated, setListCreated] = useState(false)
+
+  const handleChangeCategory = (event) => {
+    setCategory(event.target.value);
+  };
+
+  const handleChangePostcode = (event) => {
+    setPostcode(event.target.value);
+  };
+
+  const handleChangeTitle = (event) => {
+    setTitle(event.target.value);
+  };
+
+  const handleChangeDescription = (event) => {
+    setDescription(event.target.value);
+  };
+
+  const handleFormSubmit = (event) => {
+    event.preventDefault();
+    setLoading(true);
+    createListing(category, postcode, title, description).finally(() => {
+      setLoading(false);
+      setListCreated(true)
+    });
+  };
+
   return (
-    <div className="bg-brownc px-10 md:px-12 lg:px-14 py-10 md:py-16 lg:py-10 ">
-      <form className="flex max-w-md flex-col gap-4 bg-light box-border px-6 py-12 rounded-md">
-        <p className=" text-brownc font-bold text-center text-lg px-4 pb-4">
+    <div>
+    {listCreated ? (
+      <Navigate to="/dashboard" />
+    ) : (
+    <div className="bg-brownc px-10 md:px-12 lg:px-14 
+    py-10 md:py-16 lg:py-10 ">
+      <form className="flex max-w-md flex-col gap-4
+       bg-light box-border px-6 py-12 rounded-md">
+        <p className=" text-brownc font-bold 
+        text-center text-lg px-4 pb-4">
           Create New Listing
         </p>
 
         {/* File Upload */}
 
-        <label
-          class="block mb-2 text-sm font-medium text-black"
-          for="multiple_files"
+        {/* <label
+          className="block mb-2 text-sm font-medium text-black"
+          htmlFor="multiple_files"
         >
           Upload Images
         </label>
         <input
-          class="block w-full text-sm text-black border border-gray-300 rounded-lg 
+          className="block w-full text-sm text-black border border-gray-300 rounded-lg 
     cursor-pointer bg-white"
           id="multiple_files"
           type="file"
           multiple
           required
-        />
+        /> */}
 
         {/* Categories */}
         <div>
-        <label for="countries" class="block mb-2 text-sm font-medium text-brownc">Select Category</label>
-        <select id="countries" class="bg-white text-brownc border border-gray-300 text-sm rounded-lg
-         focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 required">
- 
+        <label htmlFor="countries" className="block mb-2 text-sm 
+        font-medium text-brownc">Select Category
+        </label>
+        <select id="countries" className="bg-white
+         text-brownc border border-gray-300 text-sm rounded-lg
+         focus:ring-blue-500 focus:border-blue-500 
+         block w-full p-2.5 required" 
+         onChange={handleChangeCategory}
+         value={category}>
+            <option value="">Select an option</option>
             <option>Vegetables</option>
             <option>Fruits</option>
             <option>Dairy / Eggs</option>
@@ -45,10 +92,16 @@ export default function CreateListing() {
 
          {/* Post Code */}
          <div>
-        <label for="countries" class="block mb-2 text-sm font-medium text-brownc">Select Postcode</label>
-        <select id="countries" class="bg-white text-browncborder border-gray-300 text-sm rounded-lg
-         focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 required">
- 
+        <label htmlFor="countries" className="block mb-2 text-sm 
+        font-medium text-brownc">
+          Select Postcode</label>
+        <select id="countries" className="bg-white text-browncborder
+         border-gray-300 text-sm rounded-lg
+         focus:ring-blue-500 focus:border-blue-500 
+         block w-full p-2.5 required"
+         onChange={handleChangePostcode}
+         value={postcode}>
+            <option value="">Select an option</option>
             <option>3000</option>
             <option>3045</option>
             <option>2000</option>
@@ -58,6 +111,7 @@ export default function CreateListing() {
           </select>
         </div>
 
+        {/* Title */}
         <div className="mb-2 block">
           <Label
             htmlFor="title1"
@@ -72,23 +126,9 @@ export default function CreateListing() {
           required
           type="text"
           className=" text-brownc"
+          onChange={handleChangeTitle}
+          value={title}
         />
-        <div>
-          <div className="mb-2 block">
-            <Label
-              htmlFor="itemname1"
-              value="Item Name"
-              className=" text-brownc"
-            />
-          </div>
-          <TextInput
-            id="itemname1"
-            placeholder="item name"
-            type="text"
-            className=" text-brownc"
-          />
-        </div>
-        
         <div className="max-w-md" id="textarea">
           <div className="mb-2 block">
             <Label htmlFor="description" value="Description" />
@@ -99,13 +139,22 @@ export default function CreateListing() {
             required
             rows={4}
             className="text-sm"
+            onChange={handleChangeDescription}
+            value={description}
           />
         </div>
 
-        <CustomButton type="submit" className="bg-pinkc">
-          Post Listing
-        </CustomButton>
+        <Button
+              onClick={handleFormSubmit}
+              className="bg-pinkc"
+              pill
+              isProcessing={loading}
+              disabled={loading}
+            >
+              Post Listing
+            </Button>
       </form>
-    </div>
+    </div>)}
+  </div>
   );
 }

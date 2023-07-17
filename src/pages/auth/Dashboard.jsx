@@ -21,7 +21,7 @@ export default function Dashboard() {
             {/* Categories */}
             <div>
               <Select id="countries">
-                <option defaultValue>All Categories</option>
+                <option value="">All Categories</option>
                 <option>Vegetables</option>
                 <option>Fruits</option>
                 <option>Dairy / Eggs</option>
@@ -34,7 +34,7 @@ export default function Dashboard() {
             {/* Post Code */}
             <div>
               <Select id="countries">
-                <option defaultValue>AU Postcode</option>
+                <option value="">All Eastern Suburbs Postcode</option>
                 <option>3000</option>
                 <option>3045</option>
                 <option>2000</option>

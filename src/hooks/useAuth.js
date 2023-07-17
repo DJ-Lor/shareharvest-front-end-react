@@ -84,7 +84,7 @@ export const AuthProvider = ({ children }) => {
       await getUserInfo();
       toast.success("Log in successful")
     } catch (err) {
-      console.error(err);
+      toast.error("There has been an error")
     }
   };
 
@@ -118,7 +118,7 @@ export const AuthProvider = ({ children }) => {
       toast.error("There has been an error");
     }
   };
-
+  
   return (
     <AuthContext.Provider value={{ ...state, signup, login, logout }}>
       {children}
