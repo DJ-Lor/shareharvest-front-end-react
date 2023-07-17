@@ -52,7 +52,7 @@ export default function App() {
                 <CreateListing />
               </ProtectedRoute>
             }/>
-            <Route path="/listing/:id" element={
+            <Route path="/listings/:id/comments" element={
               <ProtectedRoute isAuthenticated={isAuthenticated}>
                 <Listing />
               </ProtectedRoute>
