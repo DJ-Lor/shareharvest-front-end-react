@@ -60,7 +60,7 @@ export default function NavigationBar() {
                 </li>
                 <li>
                   <Link
-                    to="/"
+                    to="/dashboard"
                     onClick={onToggleMenu}
                     className="hover:border-b-4 hover:border-pinkc hover:duration-100"
                   >

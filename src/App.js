@@ -15,7 +15,7 @@ import LogIn from './pages/auth/LogIn';
 import ForgotPassword from './pages/auth/ForgotPassword';
 import Dashbboard from './pages/auth/Dashboard';
 import CreateListing from "./pages/auth/CreateListing";
-
+import MyListings from "./pages/auth/MyListings";
 
 // Components Import ---
 import NavigationBar from './components/NavigationBar';
@@ -55,6 +55,11 @@ export default function App() {
             <Route path="/listings/:id/comments" element={
               <ProtectedRoute isAuthenticated={isAuthenticated}>
                 <Listing />
+              </ProtectedRoute>
+            }/>
+             <Route path="/listings/mylistings" element={
+              <ProtectedRoute isAuthenticated={isAuthenticated}>
+                <MyListings />
               </ProtectedRoute>
             }/>
             <Route path="*" element={<NotFoundPage />} />
