@@ -76,7 +76,7 @@ export default function Comment() {
 
         {/* Comment Thread */}
         <article className="p-6 mb-6 text-base bg-white rounded-lg">
-          <p className="text-sm text-gray-600 space-y-4">
+          <div className="text-sm text-gray-600 space-y-4">
             {commentList
               .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
               .map((comment, index) => (
@@ -93,7 +93,7 @@ export default function Comment() {
                   <p className="text-gray-500">{comment.comment}</p>
                 </div>
               ))}
-          </p>
+          </div>
         </article>
       </div>
     </section>

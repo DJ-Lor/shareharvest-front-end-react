@@ -2,6 +2,7 @@ import { Button, Select, TextInput } from "flowbite-react";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
 // Hook Import ---
 import { useAuth } from "../../hooks/useAuth";
+import ListingSection from "../../components/ListingSection";
 
 export default function Dashboard() {
   const { user } = useAuth();
@@ -85,6 +86,7 @@ export default function Dashboard() {
           </div> */}
         </div>
       </form>
+      <ListingSection />
     </div>
   );
 }
