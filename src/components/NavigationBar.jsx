@@ -70,7 +70,7 @@ export default function NavigationBar() {
 
                 <li>
                   <Link
-                    to="/"
+                    to="/listings/mylistings"
                     onClick={onToggleMenu}
                     className="hover:border-b-4 hover:border-pinkc hover:duration-100"
                   >
@@ -79,7 +79,7 @@ export default function NavigationBar() {
                 </li>
                 <li>
                   <Link
-                    to="/"
+                    to="/users/info"
                     onClick={onToggleMenu}
                     className="hover:border-b-4 hover:border-pinkc hover:duration-100"
                   >

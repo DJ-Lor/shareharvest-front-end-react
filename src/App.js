@@ -16,6 +16,7 @@ import ForgotPassword from './pages/auth/ForgotPassword';
 import Dashbboard from './pages/auth/Dashboard';
 import CreateListing from "./pages/auth/CreateListing";
 import MyListings from "./pages/auth/MyListings";
+import Profile from "./pages/auth/Profile";
 
 // Components Import ---
 import NavigationBar from './components/NavigationBar';
@@ -60,6 +61,11 @@ export default function App() {
              <Route path="/listings/mylistings" element={
               <ProtectedRoute isAuthenticated={isAuthenticated}>
                 <MyListings />
+              </ProtectedRoute>
+            }/>
+            <Route path="/users/info" element={
+              <ProtectedRoute isAuthenticated={isAuthenticated}>
+                <Profile />
               </ProtectedRoute>
             }/>
             <Route path="*" element={<NotFoundPage />} />
