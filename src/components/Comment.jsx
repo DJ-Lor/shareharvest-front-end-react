@@ -65,7 +65,7 @@ export default function Comment() {
           </div>
           <Button
             onClick={handleCommentSubmit}
-            className="bg-pinkc"
+            className="bg-pinkc hover:bg-pink2c"
             pill
             isProcessing={loading}
             disabled={loading}
@@ -75,7 +75,9 @@ export default function Comment() {
         </form>
 
         {/* Comment Thread */}
-        <article className="p-6 mb-6 text-base bg-white rounded-lg">
+        <div>
+        {commentList.length > 0 ?
+        (<article className="p-6 mb-6 text-base bg-white rounded-lg">
           <div className="text-sm text-gray-600 space-y-4">
             {commentList
               .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
@@ -94,8 +96,10 @@ export default function Comment() {
                 </div>
               ))}
           </div>
-        </article>
+        </article>) : (null)}
+      </div>
       </div>
     </section>
+    
   );
 }
