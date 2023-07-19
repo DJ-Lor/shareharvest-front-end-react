@@ -32,10 +32,22 @@ export default function MyListings() {
 
   return (
     <div>
+        <span className="flex items-center justify-between mb-5">
+      {/* Back Link */}
+      <span className="text-purplec flex space-x-2 hover:text-pinkc hover:underline"> 
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" 
+      viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+      <path strokeLinecap="round" strokeLinejoin="round" 
+      d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18" />
+      </svg>
+      <a href="/dashboard"> Back to Dashboard</a>
+      </span>
+
       {/* Greeting */}
-      <Button type="button" className="bg-pinkc" pill>
+      <Button type="button" className="bg-purplec" pill>
         Hello, {user?.username}!
       </Button>
+      </span>
 
       <div className="grid md:grid-cols-2">
         {listings.length === 0 ? (

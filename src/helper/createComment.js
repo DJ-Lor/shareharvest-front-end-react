@@ -16,6 +16,4 @@ export const createComment = async (comment, listingId) => {
   } catch (err) {
     toast.error("There has been an error")
   }
-
-  return {createComment}
 }

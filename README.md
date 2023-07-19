@@ -1,5 +1,6 @@
 -work on pagination
--work on profile
+-work on shared/deleted
+-work on edit 
 
 -work on css (3 days)
 

@@ -19,7 +19,7 @@ export default function AboutUs() {
           </p>
 
           <div className="text-md md:text-xl pt-4">
-            This is where ShareHarvest comes in.
+            This is where <strong>ShareHarvest</strong> comes in.
           </div>
         </div>
         <img
@@ -36,10 +36,10 @@ export default function AboutUs() {
 
       <div className="bg-light px-10 md:px-12 lg:px-14 py-10 md:py-16 lg:py-10 flex flex-col md:flex-row justify-center wrap items-center space-y-8">
         <p className="text-black">
-          Not everyone will grow the same produce. Each backyard and sometimes,
+          Not everyone will grow the same produce. Sometimes,
           our harvest produces more than what we can consume. The ShareHarvest
-          platform opens up an excellent opportunity to give what’s not useful
-          for one to another who will find it useful.
+          platform opens up an excellent opportunity to <strong>give what’s not useful
+          for one to another who will find it useful.</strong>
         </p>
         <img
           src={`${process.env.PUBLIC_URL}/images/placeholder.png`}
@@ -48,10 +48,10 @@ export default function AboutUs() {
         />
 
         <p className="text-black text-right">
-          We live in a world where we are physically close to everyone, and yet
-          feel ever so distant from our neighbours. The ShareHarvest up opens up
-          the opportunity to build a harmonious and friendly relationship with
-          your local community who have something to offer that you might need.
+          We live in a world where we are physically close to everyone, yet
+          feel ever so distant from our neighbours. The ShareHarvest app opens up
+          the opportunity to <strong>build a harmonious and friendly relationship with
+          your local community</strong> who have something to offer that you might need.
         </p>
         <img
           src={`${process.env.PUBLIC_URL}/images/placeholder.png`}

@@ -5,17 +5,17 @@ export default function ContactUs() {
         <div className="md:flex md:flex-col md:pr-36">
           <p className="text-3xl md:text-5xl font-bold mb-3">Get In Touch</p>
 
-          <p className="text-md md:text-xl">
+          <p className="text-md md:text-xl mb-4">
             ShareHarvest is a free service for everyone and we intend to keep it
             that way.
           </p>
-          <p>
+          <p className="text-md md:text-xl mb-4">
             We are an entirely volunteer-driven service and aim to regularly
             check our emails and respond back the soonest we can. We appreciate
             your patience and looking forward to hearing from you!
           </p>
           <p className="text-end pr-4 md:pt-4 text-lg md:text-2xl">
-            <a href="/" className="border-b-4 border-pinkc">
+            <a href="mailto:helloshareharvest@gmail.com" className="border-b-4 border-pinkc">
               Say Hello
             </a>
           </p>

@@ -16,6 +16,4 @@ export const createListing = async (category, postcode, title, description) => {
   } catch (err) {
     toast.error("There has been an error")
   }
-
-  return {createListing}
 }

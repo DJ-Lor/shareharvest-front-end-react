@@ -9,7 +9,7 @@ export default function CallToAction() {
           time.
         </p>
         <p className="text-end pr-4 pt-4 md:pt-8 text-lg md:text-2xl">
-          <a href="/" className="border-b-4 border-pinkc">
+          <a href="/signup" className="border-b-4 border-pinkc">
             Get Started
           </a>
         </p>
