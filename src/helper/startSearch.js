@@ -1,7 +1,7 @@
 
 import axios from "axios";
 
-export const startSearch = async (category, postcode, title) => {
+export const startSearch = async (category, postcode, title, currentPage) => {
   const config = {
     headers: { "Content-Type": "application/json" },
   };
@@ -12,11 +12,12 @@ export const startSearch = async (category, postcode, title) => {
       category,
       postcode,
       title,
+      page: currentPage, 
     };
     const response = await axios.get(`${process.env.REACT_APP_API_URL}/listings`, { params: queryParams, config });
-    return response.data.listings;
+    return { foundListings: response.data.listings, responseTotalPages: response.data.responseTotalPages};
   } catch (err) {
-    return [];
+    return { foundListings: [], responseTotalPages: 0 };
   }
 }
 

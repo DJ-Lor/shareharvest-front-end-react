@@ -1,13 +1,16 @@
 import { Button, Select, TextInput } from "flowbite-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
 import { startSearch } from "../../helper/startSearch";
 import ListingCard from "../../components/ListingCard";
+import ReactPaginate from "react-paginate";
 
 // Hook Import ---
 import { useAuth } from "../../hooks/useAuth";
 
 export default function Dashboard() {
+  const { user } = useAuth();
+
   const [title, setTitle] = useState("");
   const [category, setCategory] = useState("");
   const [postcode, setPostcode] = useState("");
@@ -15,37 +18,53 @@ export default function Dashboard() {
   const [loading, setLoading] = useState(false);
   const [searchPerformed, setSearchPerformed] = useState(false);
 
-  const { user } = useAuth();
+  // Paginate Values
+  const [currentPage, setCurrentPage] = useState(0);
+  const [totalPages, setTotalPages] = useState(0);
+  // TODO: This is hardcoded atm on the backend to 2
+  // const itemsPerPage = 2;
 
-  const handleChangeCategory = (event) => {
-    setCategory(event.target.value);
-  };
+  useEffect(() => {
+    queryListings();
+  }, [currentPage]);
 
-  const handleChangePostcode = (event) => {
-    setPostcode(event.target.value);
-  };
-
-  const handleFormSubmit = (event) => {
-    event.preventDefault();
+  function queryListings() {
     setLoading(true);
     setSearchPerformed(true);
-    startSearch(category, postcode, title).then((foundListings) => {
-      console.log(foundListings);
-      setListings(foundListings);
+    startSearch(category, postcode, title, currentPage).then((response) => {
+      setListings(response.foundListings);
+      setTotalPages(response.responseTotalPages);
       setLoading(false);
     });
-  };
+  }
+
+  function handleFormSubmit(event) {
+    event.preventDefault();
+    queryListings();
+  }
+
+  function handlePageClick({ selected: selectedPage }) {
+    setCurrentPage(selectedPage);
+  }
 
   if (loading) {
-    return <p className="text-purplec flex justify-center italic mt-20">Loading...</p>; 
+    return (
+      <p className="text-purplec flex justify-center italic mt-20">
+        Loading...
+      </p>
+    );
   }
+
+  
   return (
     <div>
       {/* Greeting */}
 
-      <Button type="button" className="bg-pinkc" pill>
-        Hello, {user?.username}!
-      </Button>
+      <div className="flex justify-end">
+        <Button type="button" className="bg-pinkc" pill>
+          Hello, {user?.username}!
+        </Button>
+      </div>
 
       {/* Search Bar Main*/}
       <form className="mt-4" onSubmit={handleFormSubmit}>
@@ -56,7 +75,7 @@ export default function Dashboard() {
               <Select
                 id="countries"
                 value={category}
-                onChange={handleChangeCategory}
+                onChange={(event) => setCategory(event.target.value)}
               >
                 <option value="">All Categories</option>
                 <option>Vegetables</option>
@@ -71,9 +90,9 @@ export default function Dashboard() {
             {/* Post Code */}
             <div>
               <Select
-                id="countries"
+                id="postcodes"
                 value={postcode}
-                onChange={handleChangePostcode}
+                onChange={(event) => setPostcode(event.target.value)}
               >
                 <option value="">All Eastern Suburbs Postcode</option>
                 <option>3000</option>
@@ -128,14 +147,33 @@ export default function Dashboard() {
         </div>
       </form>
 
-      <div className="grid md:grid-cols-2">
-        {searchPerformed && listings.length === 0 ? (
-          <p className="text-purplec flex justify-center italic mt-20">No results found</p>
+      <div className="grid md:grid-cols-2 py-12">
+        {searchPerformed && listings?.length === 0 ? (
+          <p className="text-purplec flex justify-center italic mt-20">
+            No results found
+          </p>
         ) : (
-          listings.map((listing) => (
+          listings?.map((listing) => (
             <ListingCard key={listing._id} listing={listing} />
           ))
         )}
+      </div>
+
+      {/* Pagination Component */}
+      <div>
+      {(totalPages === 1) ? (null) :
+      (<ReactPaginate
+        previousLabel={"← Prev"}
+        nextLabel={"Next →"}
+        pageCount={totalPages}
+        onPageChange={handlePageClick}
+        containerClassName={"pagination"}
+        previousLinkClassName={"pagination__link"}
+        nextLinkClassName={"pagination__link"}
+        disabledClassName={"pagination__link--disabled"}
+        activeClassName={"pagination__link--active"}
+        className="text-light flex space-x-4 justify-center mb-6"
+      />)}
       </div>
     </div>
   );

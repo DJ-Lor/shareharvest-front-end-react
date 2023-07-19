@@ -32,7 +32,7 @@ export default function App() {
   return (
     <div id="main-app-layout" className="p-2 bg-brownc min-h-screen">
         <NavigationBar />
-        <Toaster position="top-right" toastOptions={{duration: 2000}} />
+        <Toaster position="top-right" toastOptions={{duration: 3000}} />
         <div id="route-app-layout">
           <Routes>
             <Route path="/" element={<Home />} />

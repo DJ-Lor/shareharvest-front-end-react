@@ -1,12 +1,15 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Navigate, useNavigate } from "react-router-dom";
+import { ArrowLeftIcon } from "@heroicons/react/24/solid";
+import { Label, TextInput, Textarea, Button } from "flowbite-react";
+
 import Comment from "../../components/Comment";
 import { editListing } from "../../helper/editListing";
-import { Label, TextInput, Textarea, Button } from "flowbite-react";
 
 // Hook Import ---
 import { useAuth } from "../../hooks/useAuth";
+import { deleteListing } from "../../helper/deleteListing";
 
 export default function Listing() {
   const [listing, setListing] = useState({});
@@ -14,24 +17,32 @@ export default function Listing() {
   const [editedListing, setEditedListing] = useState({});
   const [category, setCategory] = useState("");
   const [postcode, setPostcode] = useState("");
-  let { id: listingId } = useParams();
+  const [commentList, setCommentList] = useState([]);
+  const [isDeleted, setIsDeleted] = useState(false);
 
+  const { id: listingId } = useParams();
   const { user } = useAuth();
+
+  const navigate = useNavigate();
+  const goBack = () => {
+    navigate(-1);
+  };
 
   useEffect(() => {
     // Make the API request when the component mounts
-    fetchListing(listingId);
+    fetchListing();
   }, []);
 
-  const fetchListing = async (listingId) => {
+  const fetchListing = async () => {
     try {
       const res = await axios.get(
-        `${process.env.REACT_APP_API_URL}/listings/${listingId}/comments`
+        `${process.env.REACT_APP_API_URL}/listings/${listingId}`
       );
       const fetchedListing = res.data.listing;
       setListing(fetchedListing);
       setCategory(fetchListing.category);
       setPostcode(fetchListing.postcode);
+      setCommentList(res.data.comments);
     } catch (error) {
       console.error("Error fetching listing:", error);
     }
@@ -48,10 +59,11 @@ export default function Listing() {
   }
 
   function handleChangePostcode(event) {
-    setPostcode(event.target.value); // Update postcode state on change
-    setEditedListing({ ...editedListing, postcode }); // Update editedListing's postcode
+    setPostcode(event.target.value);
+    setEditedListing({ ...editedListing, postcode });
   }
 
+  // Saving the edited listing to the database
   async function handleSaveChanges(event) {
     event.preventDefault();
     // Call the editListing function with the updated data and listingId
@@ -67,38 +79,29 @@ export default function Listing() {
   // For edit and delete functions, check if the user created the listing
   const userId = user?._id;
   const listingUserId = listing.userId;
-  const isListOwner = listingUserId === userId
+  const isListOwner = listingUserId === userId;
+
+  // Deleting the current listing from the database
+  async function handleDeleteListing(event) {
+    event.preventDefault();
+    if (isListOwner) {
+      await deleteListing(listingId);
+      setIsDeleted(true);
+    }
+  }
 
   return (
     <div
       className="bg-brownc px-10 md:px-12 lg:px-14 
     py-10 md:py-16 lg:py-10"
     >
-      <span className="flex items-center justify-between mb-5">
-        {/* Back Link */}
-        <span className="text-purplec flex space-x-2 hover:text-pinkc hover:underline">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={1.5}
-            stroke="currentColor"
-            className="w-6 h-6"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18"
-            />
-          </svg>
-          <a href="/dashboard"> Back to Listing</a>
-        </span>
-
-        {/* Greeting */}
-        <Button type="button" className="bg-purplec" pill>
-          Hello, {user?.username}!
+      {/* Back Link */}
+      <div className="flex items-center justify-between mb-5">
+        <Button onClick={goBack} className="text-purplec hover:underline">
+          <ArrowLeftIcon className="text-purplec h-5 w-5 hover:text-pinkc hover:underline" />
+          <p className="ml-2">Back to Dashboard</p>
         </Button>
-      </span>
+      </div>
 
       {/* Listing Card */}
       <div
@@ -106,7 +109,7 @@ export default function Listing() {
        bg-light box-border px-6 py-12 rounded-md"
       >
         <div>
-          {isListOwner? (
+          {isListOwner ? (
             <span className="flex justify-end text-sm">
               {isEditing ? (
                 <Button
@@ -125,13 +128,19 @@ export default function Listing() {
                   >
                     EDIT
                   </Button>
-                  <Button
-                    onClick={setEditMode}
-                    className="bg-pinkc hover:bg-pink2c"
-                    pill
-                  >
-                    DELETE
-                  </Button>
+                  <div>
+                    {isDeleted ? (
+                      <Navigate to="/listings/mylistings" />
+                    ) : (
+                      <Button
+                        onClick={handleDeleteListing}
+                        className="bg-pinkc hover:bg-pink2c"
+                        pill
+                      >
+                        DELETE
+                      </Button>
+                    )}
+                  </div>
                 </span>
               )}
             </span>
@@ -242,7 +251,7 @@ export default function Listing() {
             </>
           )}
         </div>
-        {isEditing ? null : <Comment />}
+        {isEditing ? null : <Comment comments={commentList} />}
       </div>
     </div>
   );

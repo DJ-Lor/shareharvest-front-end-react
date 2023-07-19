@@ -1,6 +1,5 @@
--work on pagination
--work on shared/deleted
--work on edit 
+
+-email newsletter
 
 -work on css (3 days)
 
@@ -10,3 +9,6 @@
 
 -documentation (1 day)
 
+-jira
+
+-wireframes

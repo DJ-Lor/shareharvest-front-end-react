@@ -1,48 +1,27 @@
-import axios from "axios";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { Button } from "flowbite-react";
 import { createComment } from "../helper/createComment";
-import CommentAvatar from "./CommentAvatar"
+import CommentAvatar from "./CommentAvatar";
 
-export default function Comment() {
-  // Setup local state
+export default function Comment({ comments }) {
   const [comment, setComment] = useState("");
-  const [commentList, setCommentList] = useState([]);
   const [loading, setLoading] = useState(false);
+  const { id: listingId } = useParams();
 
-  let { id: listingId } = useParams();
-
-  const handleChangeComment = (event) => {
-    setComment(event.target.value);
-  };
-
-  const handleCommentSubmit = (event) => {
+  function handleCommentSubmit(event) {
     event.preventDefault();
     setLoading(true);
-    createComment(comment, listingId).finally(() => {
-      setLoading(false);
-      setComment("");
-    });
-  };
+    createComment(comment, listingId)
+      .then((comment) => {
+        if (comment) comments.push(comment);
+      })
+      .finally(() => {
+        setLoading(false);
+        setComment("");
+      });
+  }
 
-  useEffect(() => {
-    // Make the API request when the component mounts
-    fetchComments(listingId);
-  }, [listingId, commentList]);
-
-  const fetchComments = async (listingId) => {
-    try {
-      const res = await axios.get(
-        `${process.env.REACT_APP_API_URL}/listings/${listingId}/comments`
-      );
-
-      const fetchedComments = res.data.comments;
-      setCommentList(fetchedComments);
-    } catch (error) {
-      console.error("Error fetching comments:", error);
-    }
-  };
   return (
     <section className="py-8 lg:py-16">
       <div className="max-w-2xl mx-auto px-4">
@@ -60,7 +39,7 @@ export default function Comment() {
               placeholder="Write a comment..."
               required
               value={comment}
-              onChange={handleChangeComment}
+              onChange={(event) => setComment(event.target.value)}
             ></textarea>
           </div>
           <Button
@@ -76,30 +55,30 @@ export default function Comment() {
 
         {/* Comment Thread */}
         <div>
-        {commentList.length > 0 ?
-        (<article className="p-6 mb-6 text-base bg-white rounded-lg">
-          <div className="text-sm text-gray-600 space-y-4">
-            {commentList
-              .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
-              .map((comment, index) => (
-                <div key={index} className="border-b space-y-2 pb-2">
-                  <span className="flex space-x-3 items-center">
-                    <CommentAvatar username={comment.userId.username} />
-                    <p className="text-md text-brownc font-bold">
-                      {comment.userId.username}
-                    </p>
-                    <p className="text-xs italic text-gray-300">
-                      {new Date(comment.createdAt).toLocaleString()}
-                    </p>
-                  </span>
-                  <p className="text-gray-500">{comment.comment}</p>
-                </div>
-              ))}
-          </div>
-        </article>) : (null)}
-      </div>
+          {comments.length > 0 ? (
+            <article className="p-6 mb-6 text-base bg-white rounded-lg">
+              <div className="text-sm text-gray-600 space-y-4">
+                {comments
+                  .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
+                  .map((comment, index) => (
+                    <div key={index} className="border-b space-y-2 pb-2">
+                      <span className="flex space-x-3 items-center">
+                        <CommentAvatar username={comment.userId.username} />
+                        <p className="text-md text-brownc font-bold">
+                          {comment.userId.username}
+                        </p>
+                        <p className="text-xs italic text-gray-300">
+                          {new Date(comment.createdAt).toLocaleString()}
+                        </p>
+                      </span>
+                      <p className="text-gray-500">{comment.comment}</p>
+                    </div>
+                  ))}
+              </div>
+            </article>
+          ) : null}
+        </div>
       </div>
     </section>
-    
   );
 }
