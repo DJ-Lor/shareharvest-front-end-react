@@ -64,15 +64,10 @@ export default function Listing() {
     setIsEditing(false);
   }
 
-  // // For edit and delete functions, check if the user created the listing
-  // const userId = user?._id
-  // const listingUserId = listing.userId
-
-  // if (listingUserId.toString() !== userId.toString()) {
-  //   throw new Error('You are not authorised to edit this listing')
-  // } else {
-
-  // }
+  // For edit and delete functions, check if the user created the listing
+  const userId = user?._id;
+  const listingUserId = listing.userId;
+  const isListOwner = listingUserId === userId
 
   return (
     <div
@@ -110,22 +105,38 @@ export default function Listing() {
         className="flex max-w-md flex-col gap-4
        bg-light box-border px-6 py-12 rounded-md"
       >
-        <span className="flex justify-end text-sm">
-          {isEditing ? (
-            <Button onClick={handleSaveChanges} className="bg-pinkc hover:bg-pink2c" pill>
-              SAVE
-            </Button>
-          ) : (
-            <span className="flex justify-end space-x-4 text-sm">
-              <Button onClick={setEditMode} className="bg-pinkc hover:bg-pink2c" pill>
-                EDIT
-              </Button>
-              <Button onClick={setEditMode} className="bg-pinkc hover:bg-pink2c" pill>
-                DELETE
-              </Button>
+        <div>
+          {isListOwner? (
+            <span className="flex justify-end text-sm">
+              {isEditing ? (
+                <Button
+                  onClick={handleSaveChanges}
+                  className="bg-pinkc hover:bg-pink2c"
+                  pill
+                >
+                  SAVE
+                </Button>
+              ) : (
+                <span className="flex justify-end space-x-4 text-sm">
+                  <Button
+                    onClick={setEditMode}
+                    className="bg-pinkc hover:bg-pink2c"
+                    pill
+                  >
+                    EDIT
+                  </Button>
+                  <Button
+                    onClick={setEditMode}
+                    className="bg-pinkc hover:bg-pink2c"
+                    pill
+                  >
+                    DELETE
+                  </Button>
+                </span>
+              )}
             </span>
-          )}
-        </span>
+          ) : null}
+        </div>
         <div className="p-2 space-y-4">
           {isEditing ? (
             <>
@@ -231,8 +242,7 @@ export default function Listing() {
             </>
           )}
         </div>
-        {isEditing ? (null) : 
-        (<Comment />)}
+        {isEditing ? null : <Comment />}
       </div>
     </div>
   );
