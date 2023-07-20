@@ -30,7 +30,7 @@ export default function NavigationBar() {
   };
 
   return (
-    <div className="text-white bg-brownc font-google px-6 md:px-12 lg:px-14 py-10 md:py-16 lg:py-10 flex wrap items-center justify-between">
+    <div className="text-white bg-brownc font-google py-10 md:py-16 lg:py-10 flex wrap items-center justify-between">
       {/* Logo */}
       {/* Mobile Menu Bar */}
 
@@ -159,7 +159,7 @@ export default function NavigationBar() {
 
       <button
         type="button"
-        className="md:hidden absolute right-10 z-50"
+        className="md:hidden absolute right-4 top-11 z-50"
         onClick={onToggleMenu}
       >
         {hamburger === "menu" ? (

@@ -40,7 +40,7 @@ export default function SignUp() {
       {auth?.isAuthenticated ? (
         <Navigate to="/dashboard" />
       ) : (
-        <div className="bg-brownc px-10 md:px-12 lg:px-14 py-10 md:py-16 lg:py-10 ">
+        <div className="md:px-12 lg:px-14 py-10 md:py-16 lg:py-10 ">
           <form className="flex max-w-md flex-col gap-4 bg-light box-border px-6 py-12 rounded-md">
             <p className=" text-brownc font-bold text-center text-lg px-4 pb-4">
               Create your community profile
@@ -50,7 +50,7 @@ export default function SignUp() {
                 <Label
                   htmlFor="username1"
                   value="Username"
-                  className=" text-brownc"
+                  className="font-bold"
                 />
               </div>
               <TextInput
@@ -68,7 +68,7 @@ export default function SignUp() {
                 <Label
                   htmlFor="email1"
                   value="Email Address"
-                  className=" text-brownc"
+                  className="font-bold"
                 />
               </div>
               <TextInput
@@ -86,7 +86,7 @@ export default function SignUp() {
                 <Label
                   htmlFor="password1"
                   value="Password"
-                  className=" text-brownc"
+                  className="font-bold"
                 />
               </div>
               <TextInput
@@ -104,7 +104,7 @@ export default function SignUp() {
                 <Label
                   htmlFor="postcode1"
                   value="Postcode"
-                  className=" text-brownc"
+                  className="font-bold"
                 />
               </div>
               <TextInput

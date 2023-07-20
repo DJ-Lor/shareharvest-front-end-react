@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
-    <div className=" text-white bg-brownc font-google px-6 md:px-12 lg:px-14 py-10 md:py-16 lg:py-10">
+    <div className=" text-white bg-brownc font-google md:px-12 lg:px-14 pb-4 md:py-16 lg:py-10 pt-14">
       <div className="flex flex-col md:flex-row wrap md:grid grid-cols-3">
         {/* Newsletter  */}
         <div className="col-span-2">
@@ -64,7 +64,7 @@ export default function Footer() {
         {/* </div> */}
       </div>
 
-      <div className="flex flex-row wrap items-center justify-between pt-2">
+      <div className="flex flex-row wrap items-end justify-between">
         <p className="text-s">© Copyright 2023</p>
         <img
           src={`${process.env.PUBLIC_URL}/images/placeholder.png`}

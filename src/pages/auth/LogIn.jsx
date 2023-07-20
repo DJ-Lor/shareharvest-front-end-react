@@ -33,8 +33,8 @@ export default function LogIn() {
     {auth?.isAuthenticated ? (
       <Navigate to="/dashboard" />
     ) : (
-    <div className="bg-brownc px-10 md:px-12 lg:px-14 py-10 md:py-16 lg:py-10 ">
-      <form className="flex max-w-md flex-col gap-4 bg-light box-border px-6 py-12 rounded-md ">
+    <div className="bg-brownc md:px-12 lg:px-14 py-10 md:py-16 lg:py-10">
+      <form className="flex max-w-md flex-col gap-4 bg-light box-border px-6 py-12 rounded-md">
         <p className=" text-brownc font-bold text-center text-lg px-4 pb-4">
           Good to have you back!
         </p>
@@ -68,7 +68,7 @@ export default function LogIn() {
             >
             Log In
         </Button>
-        <a href="/forgotpassword" className="text-brownc underline text-sm text-center">
+        <a href="/forgotpassword" className="text-brownc underline text-m mt-2 text-center">
           Forgot Your Password?
         </a>
       </form>

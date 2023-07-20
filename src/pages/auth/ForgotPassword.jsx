@@ -8,7 +8,7 @@ export default function ForgotPassword() {
           Forgot your password?
         </p>
         <p className=" text-brownc text-center text-md px-4 pb-4">
-        Please email support@shareharvest.com and we will help reset your password. 
+        Please email <strong>support@shareharvest.com</strong> and we will help reset your password. 
         </p>
         <a href="/" className="text-brownc underline text-sm text-center">
           Return to Homepage

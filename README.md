@@ -12,3 +12,11 @@
 -jira
 
 -wireframes
+
+
+Little things:
+1. Flowbite Button text size too small 
+2. Sort import via ES lint group
+3. Add some pink on paragraph texty items
+  - SH story
+  - Profile - auth

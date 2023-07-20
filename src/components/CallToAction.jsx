@@ -1,6 +1,6 @@
 export default function CallToAction() {
   return (
-    <div className="font-google bg-brownc text-white px-10 md:px-12 lg:px-14 py-10 md:py-16 lg:py-10 flex flex-col md:flex-row ">
+    <div className="md:px-12 lg:px-14 pt-16 md:py-16 lg:py-10 flex flex-col md:flex-row ">
       <div className="flex flex-col md:pr-36">
         <p className="text-3xl md:text-5xl font-bold">Share more,</p>
         <p className="text-3xl md:text-5xl font-bold">waste less.</p>
@@ -8,7 +8,7 @@ export default function CallToAction() {
           Building sustainable communities one homegrown excess produce at a
           time.
         </p>
-        <p className="text-end pr-4 pt-4 md:pt-8 text-lg md:text-2xl">
+        <p className="text-end pr-4 pt-6 md:pt-8 text-lg md:text-2xl">
           <a href="/signup" className="border-b-4 border-pinkc">
             Get Started
           </a>
