@@ -41,7 +41,7 @@ export default function NavigationBar() {
 
         <div
           className={`z-50 duration-400 md:static absolute bg-brownc md:min-h-fit min-h-[20vh] left-0 ${
-            toggleDropDown ? "w-screen h-screen" : "top-[-100%]"
+            toggleDropDown ? "w-screen h-[200vh]" : "top-[-100%]"
           } md:w-auto w-full flex item-center px-8 py-6`}
         >
           {/* Menu */}

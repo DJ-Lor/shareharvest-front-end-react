@@ -2,6 +2,10 @@ import NewsletterForm from "./NewsletterForm";
 import { Link } from "react-router-dom";
 
 export default function Footer() {
+  const handleScrollToTop = () => {
+    window.scrollTo(0, 0);
+  };
+
   return (
     <div className=" text-white bg-brownc font-google md:px-12 lg:px-14 pb-4 md:py-16 lg:py-10 pt-14">
       <div className="flex flex-col md:flex-row wrap md:grid grid-cols-3">
@@ -20,6 +24,7 @@ export default function Footer() {
             <li>
               <Link
                 to="/aboutus"
+                onClick={handleScrollToTop}
                 className="hover:border-b-4 hover:border-pinkc hover:duration-100"
               >
                 About Us
@@ -28,6 +33,7 @@ export default function Footer() {
             <li>
               <Link
                 to="/howitworks"
+                onClick={handleScrollToTop}
                 className="hover:border-b-4 hover:border-pinkc hover:duration-100"
               >
                 How It Works
@@ -36,6 +42,7 @@ export default function Footer() {
             <li>
               <Link
                 to="/contactus"
+                onClick={handleScrollToTop}
                 className="hover:border-b-4 hover:border-pinkc hover:duration-100"
               >
                 Contact Us
@@ -45,7 +52,8 @@ export default function Footer() {
           <ul className="text-lg space-y-3">
             <li>
               <a
-                href="/"
+                href="https://www.instagram.com/"
+                target="_blank" rel="noopener noreferrer"
                 className="hover:border-b-4 hover:border-pinkc hover:duration-100"
               >
                 Instagram
@@ -53,7 +61,8 @@ export default function Footer() {
             </li>
             <li>
               <a
-                href="/"
+                href="https://www.linkedin.com/"
+                target="_blank" rel="noopener noreferrer"
                 className="hover:border-b-4 hover:border-pinkc hover:duration-100"
               >
                 LinkedIn
