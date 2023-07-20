@@ -43,7 +43,7 @@ export default function CreateListing() {
     {listCreated ? (
       <Navigate to="/dashboard" />
     ) : (
-    <div className="bg-brownc px-10 md:px-12 lg:px-14 
+    <div className="md:px-12 lg:px-14 
     py-10 md:py-16 lg:py-10 ">
       <form className="flex max-w-md flex-col gap-4
        bg-light box-border px-6 py-12 rounded-md">

@@ -92,7 +92,7 @@ export default function Listing() {
 
   return (
     <div
-      className="bg-brownc px-10 md:px-12 lg:px-14 
+      className="md:px-12 lg:px-14 
     py-10 md:py-16 lg:py-10"
     >
       {/* Back Link */}

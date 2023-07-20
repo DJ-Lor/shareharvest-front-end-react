@@ -52,7 +52,7 @@ export default function Dashboard() {
       {/* Search Bar Main*/}
       <form className="mt-4" onSubmit={handleFormSubmit}>
         <div className="flex flex-col-reverse">
-          <div className="flex justify-center space-x-4 pt-1">
+          <div className="flex justify-start pt-1 space-x-2">
             {/* Categories */}
             <div>
               <Select

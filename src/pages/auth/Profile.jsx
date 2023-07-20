@@ -1,5 +1,8 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { useNavigate } from 'react-router-dom';
+import { ArrowLeftIcon } from "@heroicons/react/24/solid";
+import { Button } from "flowbite-react";
 
 export default function Profile() {
   const [user, setUser] = useState(null);
@@ -24,24 +27,27 @@ export default function Profile() {
     fetchUserInfo();
   }, []);
 
+  const navigate = useNavigate();
+  const goBack = () => {
+    navigate(-1);
+  };
+
   return (
-    <div className="bg-brownc px-10 md:px-12 lg:px-14 py-10 md:py-16 lg:py-10">
-       {/* Back Link */}
-      <span className="text-purplec flex space-x-2 hover:text-pinkc hover:underline mb-5"> 
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" 
-      viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-      <path strokeLinecap="round" strokeLinejoin="round" 
-      d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18" />
-      </svg>
-      <a href="/dashboard"> Back to Listing</a>
-      </span>
+    <div className="md:px-12 lg:px-14 py-10 md:py-16 lg:py-10">
+      {/* Back Link */}
+      <div className="flex items-center justify-between mb-5">
+        <Button onClick={goBack} className="text-purplec">
+          <ArrowLeftIcon className="text-purplec h-5 w-5 hover:text-pinkc hover:underline" />
+          <p className="ml-2">Back</p>
+        </Button>
+      </div>
 
       <div className="flex max-w-md flex-col gap-4 bg-light box-border px-6 py-12 rounded-md">
         <p className="text-brownc font-bold text-center text-xl px-4 pb-4">
           Your Profile
         </p>
         {user ? (
-          <div className="text-m space-y-8">
+          <div className="text-m space-y-8  text-brownc">
             <div className="flex flex-col items-center space-y-2">
               <p className="font-bold text-pink">Username:</p>
               <p>{user.username}</p>

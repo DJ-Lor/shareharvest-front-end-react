@@ -20,7 +20,11 @@ export default function MyListings() {
         `${process.env.REACT_APP_API_URL}/listings/mylistings`,
         config
       );
-      setListings(response.data.listings);
+      // Sort listings by the latest createdAt date
+      const sortedListings = response.data.listings.sort(
+        (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+      );
+      setListings(sortedListings);
     } catch (err) {
       return [];
     }
@@ -49,7 +53,7 @@ export default function MyListings() {
         </span>
       </span>
 
-      <div className="grid md:grid-cols-2">
+      <div className="grid md:grid-cols-2 pb-10">
         {listings.length === 0 ? (
           <p className="text-purplec flex justify-center italic mt-20">
             No listings created

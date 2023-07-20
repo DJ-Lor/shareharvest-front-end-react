@@ -68,7 +68,7 @@ export default function LogIn() {
             >
             Log In
         </Button>
-        <a href="/forgotpassword" className="text-brownc underline text-m mt-2 text-center">
+        <a href="/forgotpassword" className="text-brownc underline text-m mt-2 text-center hover:font-bold">
           Forgot Your Password?
         </a>
       </form>
