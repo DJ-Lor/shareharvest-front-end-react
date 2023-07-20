@@ -1,11 +1,8 @@
-import { Button, Select, TextInput } from "flowbite-react";
+import { Button, Select, TextInput, Pagination, Spinner } from "flowbite-react";
 import { useEffect, useState } from "react";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
 import { startSearch } from "../../helper/startSearch";
 import ListingCard from "../../components/ListingCard";
-import ReactPaginate from "react-paginate";
-
-// Hook Import ---
 import { useAuth } from "../../hooks/useAuth";
 
 export default function Dashboard() {
@@ -19,10 +16,8 @@ export default function Dashboard() {
   const [searchPerformed, setSearchPerformed] = useState(false);
 
   // Paginate Values
-  const [currentPage, setCurrentPage] = useState(0);
   const [totalPages, setTotalPages] = useState(0);
-  // TODO: This is hardcoded atm on the backend to 2
-  // const itemsPerPage = 2;
+  const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
     queryListings();
@@ -33,7 +28,8 @@ export default function Dashboard() {
     setSearchPerformed(true);
     startSearch(category, postcode, title, currentPage).then((response) => {
       setListings(response.foundListings);
-      setTotalPages(response.responseTotalPages);
+      setTotalPages(response.totalPages);
+      console.log(response.foundListings.length, response.totalPages);
       setLoading(false);
     });
   }
@@ -43,19 +39,6 @@ export default function Dashboard() {
     queryListings();
   }
 
-  function handlePageClick({ selected: selectedPage }) {
-    setCurrentPage(selectedPage);
-  }
-
-  if (loading) {
-    return (
-      <p className="text-purplec flex justify-center italic mt-20">
-        Loading...
-      </p>
-    );
-  }
-
-  
   return (
     <div>
       {/* Greeting */}
@@ -114,66 +97,43 @@ export default function Dashboard() {
             onChange={(event) => setTitle(event.target.value)}
             disabled={loading}
           />
-          {/* <div className="relative w-full">
-            <input
-              type="search"
-              id="search-dropdown"
-              className="block p-2.5 w-full z-20 text-sm text-black bg-light rounded-lg focus:ring-light focus:border-light"
-              placeholder="I am looking for ..."
-              required
-            />
-            <button
-              type="submit"
-              className="absolute top-0 right-0 p-2.5 text-sm font-medium h-full text-white bg-blue-700 rounded-r-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-            >
-              <svg
-                className="w-4 h-4"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 20 20"
-              >
-                <path
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
-                />
-              </svg>
-              <span className="sr-only">Search</span>
-            </button>
-          </div> */}
         </div>
       </form>
 
       <div className="grid md:grid-cols-2 py-12">
-        {searchPerformed && listings?.length === 0 ? (
-          <p className="text-purplec flex justify-center italic mt-20">
-            No results found
-          </p>
-        ) : (
-          listings?.map((listing) => (
-            <ListingCard key={listing._id} listing={listing} />
-          ))
-        )}
+        {(() => {
+          if (loading) {
+            return (
+              <p className="text-purplec flex justify-center italic mt-20">
+                Loading
+                <Spinner className="mt-2" size="lg" color="pink" />
+              </p>
+            );
+          } else if (searchPerformed && listings?.length === 0) {
+            return (
+              <p className="text-purplec flex justify-center italic mt-20">
+                No results found
+              </p>
+            );
+          } else {
+            return listings?.map((listing) => (
+              <ListingCard key={listing._id} listing={listing} />
+            ));
+          }
+        })()}
       </div>
 
       {/* Pagination Component */}
-      <div>
-      {(totalPages === 1) ? (null) :
-      (<ReactPaginate
-        previousLabel={"← Prev"}
-        nextLabel={"Next →"}
-        pageCount={totalPages}
-        onPageChange={handlePageClick}
-        containerClassName={"pagination"}
-        previousLinkClassName={"pagination__link"}
-        nextLinkClassName={"pagination__link"}
-        disabledClassName={"pagination__link--disabled"}
-        activeClassName={"pagination__link--active"}
-        className="text-light flex space-x-4 justify-center mb-6"
-      />)}
+      <div className="flex justify-center">
+        {totalPages === 1 ? null : (
+          <Pagination
+            currentPage={currentPage}
+            onPageChange={(page) => {
+              setCurrentPage(page);
+            }}
+            totalPages={totalPages}
+          />
+        )}
       </div>
     </div>
   );

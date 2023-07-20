@@ -15,9 +15,9 @@ export const startSearch = async (category, postcode, title, currentPage) => {
       page: currentPage, 
     };
     const response = await axios.get(`${process.env.REACT_APP_API_URL}/listings`, { params: queryParams, config });
-    return { foundListings: response.data.listings, responseTotalPages: response.data.responseTotalPages};
+    return { foundListings: response.data.listings, totalPages: response.data.totalPages};
   } catch (err) {
-    return { foundListings: [], responseTotalPages: 0 };
+    return { foundListings: [], totalPages: 0 };
   }
 }
 
