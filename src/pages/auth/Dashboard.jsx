@@ -104,10 +104,9 @@ export default function Dashboard() {
         {(() => {
           if (loading) {
             return (
-              <p className="text-purplec flex justify-center italic mt-20">
-                Loading
-                <Spinner className="mt-2" size="lg" color="pink" />
-              </p>
+              <div className="flex justify-center">
+                <Spinner size="lg" color="pink" />
+                </div>
             );
           } else if (searchPerformed && listings?.length === 0) {
             return (
@@ -124,7 +123,7 @@ export default function Dashboard() {
       </div>
 
       {/* Pagination Component */}
-      <div className="flex justify-center">
+      <div className="flex justify-center mb-5">
         {totalPages === 1 ? null : (
           <Pagination
             currentPage={currentPage}

@@ -35,7 +35,7 @@ export default function NavigationBar() {
       {/* Mobile Menu Bar */}
 
       <div className="flex h-full flex-col md:flex-row">
-        <Link to="/" className="text-3xl md:text-4xl font-bold">
+        <Link to="/" className="text-3xl md:text-4xl font-bold text-light">
           ShareHarvest
         </Link>
 

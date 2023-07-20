@@ -49,15 +49,15 @@ export default function Profile() {
         {user ? (
           <div className="text-m space-y-8  text-brownc">
             <div className="flex flex-col items-center space-y-2">
-              <p className="font-bold text-pink">Username:</p>
+              <p className="font-bold text-pink">Username</p>
               <p>{user.username}</p>
             </div>
             <div className="flex flex-col items-center space-y-2">
-              <p className="font-bold">Email:</p>
+              <p className="font-bold">Email</p>
               <p>{user.email}</p>
             </div>
             <div className="flex flex-col items-center space-y-2">
-              <p className="font-bold">Postcode:</p>
+              <p className="font-bold">Postcode</p>
               <p>{user.postcode}</p>
             </div>
           </div>

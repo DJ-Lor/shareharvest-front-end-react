@@ -1,14 +1,19 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import MyListingCard from "../../components/MyListingCard";
+import { Pagination } from "flowbite-react";
 
 export default function MyListings() {
   const [listings, setListings] = useState([]);
 
+    // Paginate Values
+    const [totalPages, setTotalPages] = useState(0);
+    const [currentPage, setCurrentPage] = useState(1);  
+
   // Fetch listings when the component mounts
   useEffect(() => {
     startSearch();
-  }, []);
+  }, [currentPage]);
 
   const startSearch = async () => {
     const config = {
@@ -17,14 +22,14 @@ export default function MyListings() {
 
     try {
       const response = await axios.get(
-        `${process.env.REACT_APP_API_URL}/listings/mylistings`,
-        config
+        `${process.env.REACT_APP_API_URL}/listings/mylistings?page=${currentPage}`,config
       );
       // Sort listings by the latest createdAt date
       const sortedListings = response.data.listings.sort(
         (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
       );
       setListings(sortedListings);
+      setTotalPages(response.data.totalPages);
     } catch (err) {
       return [];
     }
@@ -62,6 +67,18 @@ export default function MyListings() {
           listings.map((listing) => (
             <MyListingCard key={listing._id} listing={listing} />
           ))
+        )}
+      </div>
+       {/* Pagination Component */}
+       <div className="flex justify-center mb-5">
+        {totalPages === 1 ? null : (
+          <Pagination
+            currentPage={currentPage}
+            onPageChange={(page) => {
+              setCurrentPage(page);
+            }}
+            totalPages={totalPages}
+          />
         )}
       </div>
     </div>
