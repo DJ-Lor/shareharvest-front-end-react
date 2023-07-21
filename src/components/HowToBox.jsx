@@ -1,14 +1,14 @@
-import CustomBox from "../../components/CustomBox";
+import CustomBox from "./CustomBox";
 
 export default function HowToBox() {
   return (
-    <div className="bg-light flex flex-col items-center py-8 rounded-lg">
+    <div className="bg-light flex flex-col items-center py-8 rounded-lg overflow-scroll">
       <p className="text-pinkc text-3xl font-bold mb-4">How It Works</p>
       <div>
         {/* To Source */}
         <p className="text-pinkc text-xl font-bold mb-2 flex justify-center md:justify-start">
-            To Source
-          </p>
+          To Source
+        </p>
         <div className="space-y-2 md:space-x-8 flex items-center flex-col md:flex-row">
           <CustomBox
             number="01"
@@ -37,8 +37,8 @@ export default function HowToBox() {
         </div>
         {/* To Share */}
         <p className="text-greenc text-xl font-bold mb-2 mt-10 flex justify-center md:justify-start">
-            To Share
-          </p>
+          To Share
+        </p>
         <div className="space-y-2 md:space-x-8 flex items-center flex-col md:flex-row">
           <CustomBox
             number="01"

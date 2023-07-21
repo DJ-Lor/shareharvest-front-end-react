@@ -1,5 +1,5 @@
 import CallToAction from "../../components/CallToAction";
-import HowToBox from "./HowToBox";
+import HowToBox from "../../components/HowToBox";
 
 export default function HowItWorks() {
   return (
@@ -11,9 +11,11 @@ export default function HowItWorks() {
           </p>
 
           <p className="text-lg md:text-xl pb-10">
-            ShareHarvest is a <strong className="text-purplec">money-free</strong> platform for connecting like-minded
-            people who want to promote sustainable living, reduce wastage and
-            share their passion for food and gardening.
+            ShareHarvest is a{" "}
+            <strong className="text-purplec">money-free</strong> platform for
+            connecting like-minded people who want to promote sustainable
+            living, reduce wastage and share their passion for food and
+            gardening.
           </p>
         </div>
 
