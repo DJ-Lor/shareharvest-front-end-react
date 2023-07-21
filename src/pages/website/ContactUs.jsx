@@ -1,8 +1,8 @@
 export default function ContactUs() {
   return (
-    <div className="md:px-12 lg:px-14 md:py-16 lg:py-10 flex flex-col-reverse md:flex-row justify-center wrap items-center">
+    <div className="text-brownc flex flex-col-reverse md:flex-row justify-center md:justify-evenly wrap items-center p-2 md:p-10 bg-light rounded-lg mb-10">
       <div className="md:flex md:flex-col md:pr-36">
-        <p className="text-3xl md:text-5xl font-bold mb-3 mt-8">Get In Touch</p>
+        <p className="text-3xl md:text-5xl font-bold mb-3">Get In Touch</p>
 
         <p className="text-lg md:text-xl mb-4">
           ShareHarvest is a{" "}
@@ -19,7 +19,7 @@ export default function ContactUs() {
         <p className="text-end pr-4 md:pt-4 text-lg md:text-2xl">
           <a
             href="mailto:helloshareharvest@gmail.com"
-            className="border-b-4 border-pinkc text-xl"
+            className="border-b-4 border-pinkc text-xl md:text-3xl"
           >
             Say Hello
           </a>
