@@ -7,8 +7,8 @@ export default function Footer() {
   };
 
   return (
-    <div className=" text-white bg-brownc font-google pb-4 md:py-16 lg:py-10 pt-14">
-      <div className="flex flex-col md:flex-row wrap md:grid grid-cols-3">
+    <div className="pb-4 md:py-16 lg:py-10 pt-14">
+      <div className="flex flex-col md:flex-row wrap md:justify-between">
         {/* Newsletter  */}
         <div className="col-span-2">
           <p className="text-2xl md:text-3xl font-bold">
@@ -53,7 +53,8 @@ export default function Footer() {
             <li>
               <a
                 href="https://www.instagram.com/"
-                target="_blank" rel="noopener noreferrer"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="hover:border-b-4 hover:border-pinkc hover:duration-100"
               >
                 Instagram
@@ -62,7 +63,8 @@ export default function Footer() {
             <li>
               <a
                 href="https://www.linkedin.com/"
-                target="_blank" rel="noopener noreferrer"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="hover:border-b-4 hover:border-pinkc hover:duration-100"
               >
                 LinkedIn

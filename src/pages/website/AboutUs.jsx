@@ -1,7 +1,9 @@
+import CallToAction from "../../components/CallToAction";
+
 export default function AboutUs() {
   return (
     <div>
-      <div className="px-2 md:px-12 lg:px-14 md:py-16 lg:py-10 flex flex-col-reverse md:flex-row justify-center wrap items-center">
+      <div className="flex flex-col-reverse md:flex-row justify-center wrap items-center">
         <div className="md:flex md:flex-col md:pr-36">
           <p className="text-3xl md:text-5xl font-bold mb-3 mt-3">
             ShareHarvest Story
@@ -28,13 +30,13 @@ export default function AboutUs() {
           className="h-44 w-44 mb-4"
         />
       </div>
-      <img
+      {/* <img
         src={`${process.env.PUBLIC_URL}/images/placeholder-fruits.jpeg`}
         alt="fruits"
         className="rounded-lg mb-4"
-      />
+      /> */}
 
-      <div className="bg-light rounded-lg px-4 md:px-12 lg:px-14 py-10 md:py-16 lg:py-10 flex flex-col md:flex-row justify-center wrap items-center space-y-8 ">
+      <div className="bg-light rounded-lg px-4 md:px-12 py-10 flex flex-col lg:flex-row justify-center wrap items-center space-y-8 md:space-x-12">
         <p className="text-brownc text-lg">
           Not everyone will grow the same produce. Sometimes,
           our harvest produces more than what we can consume. The ShareHarvest
@@ -47,7 +49,7 @@ export default function AboutUs() {
           className="h-44 w-44 mb-4"
         />
 
-        <p className="text-brownc text-lg text-right">
+        <p className="text-brownc text-lg text-right lg:text-left">
           We live in a world where we are physically close to everyone, yet
           feel ever so distant from our neighbours. The ShareHarvest app opens up
           the opportunity to <strong>build a harmonious and friendly relationship with
@@ -59,6 +61,7 @@ export default function AboutUs() {
           className="h-44 w-44 mb-4"
         />
       </div>
+      <CallToAction />
     </div>
   );
 }
