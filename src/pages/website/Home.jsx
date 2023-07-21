@@ -1,10 +1,10 @@
 export default function Home() {
   return (
-    <div className="md:px-12 lg:px-14 md:py-16 lg:py-10 flex flex-col md:flex-row justify-center wrap">
+    <div className="flex flex-col lg:flex-row justify-center wrap">
       <img
         src={`${process.env.PUBLIC_URL}/images/placeholder-home.jpeg`}
         alt="home"
-        className="rounded-lg pb-8 md:pr-14"
+        className="rounded-lg pb-8 lg:pr-14"
       />
 
       <div className="">
@@ -19,7 +19,7 @@ export default function Home() {
           be useful for someone else. Share more, waste less.
         </p>
 
-        <p className="text-end pr-4 mt-2 md:pr-20 text-lg md:text-2xl">
+        <p className="text-end pr-4 mt-2 lg:pr-20 text-lg md:text-2xl">
           <a href="/signup" className="border-b-4 border-pinkc">
             Get Started
           </a>
