@@ -2,14 +2,14 @@ import CustomBox from "../../components/CustomBox";
 
 export default function HowToBox() {
   return (
-    <div className="bg-light flex flex-col items-center py-8">
+    <div className="bg-light flex flex-col items-center py-8 rounded-lg">
       <p className="text-pinkc text-3xl font-bold mb-4">How It Works</p>
       <div>
         {/* To Source */}
-        <div className="space-y-2 md:space-x-8 flex items-center flex-col md:flex-row">
-          <p className="text-pinkc text-xl font-bold mb-2 md:items-center flex">
+        <p className="text-pinkc text-xl font-bold mb-2 flex justify-center md:justify-start">
             To Source
           </p>
+        <div className="space-y-2 md:space-x-8 flex items-center flex-col md:flex-row">
           <CustomBox
             number="01"
             title="Join"
@@ -36,10 +36,10 @@ export default function HowToBox() {
           />
         </div>
         {/* To Share */}
-        <div className="space-y-2 md:space-x-8 flex items-center flex-col md:flex-row">
-          <p className="text-greenc text-xl font-bold mb-2 mt-10 md:items-center flex">
+        <p className="text-greenc text-xl font-bold mb-2 mt-10 flex justify-center md:justify-start">
             To Share
           </p>
+        <div className="space-y-2 md:space-x-8 flex items-center flex-col md:flex-row">
           <CustomBox
             number="01"
             title="Join"

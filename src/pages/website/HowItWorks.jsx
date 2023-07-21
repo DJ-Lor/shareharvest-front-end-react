@@ -4,7 +4,7 @@ import HowToBox from "./HowToBox";
 export default function HowItWorks() {
   return (
     <div>
-      <div className="md:px-12 lg:px-14 md:py-16 lg:py-10 flex flex-col-reverse md:flex-row justify-center items-center wrap">
+      <div className="flex flex-col-reverse md:flex-row justify-center items-center wrap md:pb-10">
         <div className="md:flex md:flex-col md:pr-36">
           <p className="text-3xl md:text-5xl font-bold mb-3 mt-3">
             It starts with connections

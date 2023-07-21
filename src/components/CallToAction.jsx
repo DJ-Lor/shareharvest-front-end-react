@@ -1,6 +1,6 @@
 export default function CallToAction() {
   return (
-    <div className="md:px-12 lg:px-14 pt-16 md:py-16 lg:py-10 flex flex-col md:flex-row ">
+    <div className="md:px-14 pt-16 md:py-16 lg:py-10 flex flex-col md:flex-row">
       <div className="flex flex-col md:pr-36">
         <p className="text-3xl md:text-5xl font-bold">Share more,</p>
         <p className="text-3xl md:text-5xl font-bold">waste less.</p>

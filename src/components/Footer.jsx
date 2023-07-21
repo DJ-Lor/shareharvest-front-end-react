@@ -7,7 +7,7 @@ export default function Footer() {
   };
 
   return (
-    <div className=" text-white bg-brownc font-google md:px-12 lg:px-14 pb-4 md:py-16 lg:py-10 pt-14">
+    <div className=" text-white bg-brownc font-google pb-4 md:py-16 lg:py-10 pt-14">
       <div className="flex flex-col md:flex-row wrap md:grid grid-cols-3">
         {/* Newsletter  */}
         <div className="col-span-2">

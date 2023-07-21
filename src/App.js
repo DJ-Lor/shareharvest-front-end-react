@@ -30,7 +30,7 @@ import { useAuth } from "./hooks/useAuth";
 export default function App() {
   const { isAuthenticated } = useAuth();
   return (
-    <div id="main-app-layout" className="px-4 py-2 bg-brownc text-white font-google min-h-screen">
+    <div id="main-app-layout" className="px-4 py-2 md:px-8 bg-brownc text-white font-google min-h-screen">
         <NavigationBar />
         <Toaster position="top-right" toastOptions={{duration: 2000}} />
         <div id="route-app-layout">
