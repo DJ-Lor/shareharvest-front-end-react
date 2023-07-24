@@ -1,5 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import { Toaster } from "react-hot-toast"
+import { Spinner } from "flowbite-react";
 
 // CSS Import ---
 import "./App.css"
@@ -28,13 +29,20 @@ import ProtectedRoute from './components/ProtectedRoute';
 import { useAuth } from "./hooks/useAuth";
 
 export default function App() {
-  const { isAuthenticated } = useAuth();
+  const { isAuthenticated, isLoading } = useAuth();
+  const token = localStorage.getItem("token");
   return (
     <div id="main-app-layout" className="px-4 py-2 md:px-8 bg-brownc text-white font-google min-h-screen">
         <NavigationBar />
         <Toaster position="top-right" toastOptions={{duration: 2000}} />
         <div id="route-app-layout">
-          <Routes>
+          {isLoading && token ? (
+            <div className="text-center">
+              <Spinner size="xl" color="pink"/>
+            </div>
+            )
+            : (
+            <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/howitworks" element={<HowItWorks />} />
             <Route path="/aboutus" element={<AboutUs />} />
@@ -69,7 +77,7 @@ export default function App() {
               </ProtectedRoute>
             }/>
             <Route path="*" element={<NotFoundPage />} />
-          </Routes>
+          </Routes>)}
         </div>
         {isAuthenticated ? (null) : (
         <Footer />)}

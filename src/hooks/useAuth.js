@@ -3,6 +3,7 @@ import axios from "axios";
 import { toast } from "react-hot-toast";
 
 const initialState = {
+  isLoading: true,
   isAuthenticated: false,
   user: null,
 };
@@ -13,12 +14,14 @@ const authReducer = (state, { type, payload }) => {
       return {
         ...state,
         isAuthenticated: true,
+        isLoading: false,
         user: payload.user,
       };
     case "LOGOUT":
       return {
         ...state,
         isAuthenticated: false,
+        isLoading: false,
         user: null,
       };
     default:

@@ -3,15 +3,14 @@ import { useState } from "react";
 import { createListing } from "../../helper/createListing";
 import { Navigate } from "react-router-dom";
 
-
 export default function CreateListing() {
   // Setup local state
-  const [category, setCategory] = useState("")
-  const [postcode, setPostcode] = useState("")
-  const [title, setTitle] = useState("")
-  const [description, setDescription] = useState("")
-  const [loading, setLoading] = useState(false)
-  const [listCreated, setListCreated] = useState(false)
+  const [category, setCategory] = useState("");
+  const [postcode, setPostcode] = useState("");
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [listCreated, setListCreated] = useState(false);
 
   const handleChangeCategory = (event) => {
     setCategory(event.target.value);
@@ -34,27 +33,27 @@ export default function CreateListing() {
     setLoading(true);
     createListing(category, postcode, title, description).finally(() => {
       setLoading(false);
-      setListCreated(true)
+      setListCreated(true);
     });
   };
 
   return (
     <div>
-    {listCreated ? (
-      <Navigate to="/dashboard" />
-    ) : (
-    <div className="md:px-12 lg:px-14 
-    py-10 md:py-16 lg:py-10 ">
-      <form className="flex max-w-md flex-col gap-4
-       bg-light box-border px-6 py-12 rounded-md">
-        <p className=" text-brownc font-bold 
-        text-center text-lg px-4 pb-4">
-          Create New Listing
-        </p>
+      {listCreated ? (
+        <Navigate to="/dashboard" />
+      ) : (
+        <div className="md:px-12 lg:px-14 py-10 md:py-16 lg:py-10">
+          <form className="flex max-w-md flex-col gap-4 bg-light box-border px-6 py-12 rounded-md m-auto">
+            <p
+              className=" text-brownc font-bold 
+        text-center text-lg px-4 pb-4"
+            >
+              Create New Listing
+            </p>
 
-        {/* File Upload */}
+            {/* File Upload */}
 
-        {/* <label
+            {/* <label
           className="block mb-2 text-sm font-medium text-black"
           htmlFor="multiple_files"
         >
@@ -69,82 +68,96 @@ export default function CreateListing() {
           required
         /> */}
 
-        {/* Categories */}
-        <div>
-        <label htmlFor="countries" className="block mb-2 text-sm 
-        font-medium text-brownc">Select Category
-        </label>
-        <select id="countries" className="bg-white
+            {/* Categories */}
+            <div>
+              <label
+                htmlFor="countries"
+                className="block mb-2 text-sm 
+        font-medium text-brownc"
+              >
+                Select Category
+              </label>
+              <select
+                id="countries"
+                className="bg-white
          text-brownc border border-gray-300 text-sm rounded-lg
          focus:ring-blue-500 focus:border-blue-500 
-         block w-full p-2.5 required" 
-         onChange={handleChangeCategory}
-         value={category}>
-            <option value="">Select an option</option>
-            <option>Vegetables</option>
-            <option>Fruits</option>
-            <option>Dairy / Eggs</option>
-            <option>Homemade Goods</option>
-            <option>Seedlings</option>
-            <option>Others</option>
-          </select>
-        </div>
+         block w-full p-2.5 required"
+                onChange={handleChangeCategory}
+                value={category}
+              >
+                <option value="">Select an option</option>
+                <option>Vegetables</option>
+                <option>Fruits</option>
+                <option>Dairy / Eggs</option>
+                <option>Homemade Goods</option>
+                <option>Seedlings</option>
+                <option>Others</option>
+              </select>
+            </div>
 
-         {/* Post Code */}
-         <div>
-        <label htmlFor="countries" className="block mb-2 text-sm 
-        font-medium text-brownc">
-          Select Postcode</label>
-        <select id="countries" className="bg-white text-browncborder
+            {/* Post Code */}
+            <div>
+              <label
+                htmlFor="countries"
+                className="block mb-2 text-sm 
+        font-medium text-brownc"
+              >
+                Select Postcode
+              </label>
+              <select
+                id="countries"
+                className="bg-white text-brownc border
          border-gray-300 text-sm rounded-lg
          focus:ring-blue-500 focus:border-blue-500 
          block w-full p-2.5 required"
-         onChange={handleChangePostcode}
-         value={postcode}>
-            <option value="">Select an option</option>
-            <option>3000</option>
-            <option>3045</option>
-            <option>2000</option>
-            <option>5000</option>
-            <option>2034</option>
-            <option>3865</option>
-          </select>
-        </div>
+                onChange={handleChangePostcode}
+                value={postcode}
+              >
+                <option value="">Select an option</option>
+                <option>3000</option>
+                <option>3045</option>
+                <option>2000</option>
+                <option>5000</option>
+                <option>2034</option>
+                <option>3865</option>
+              </select>
+            </div>
 
-        {/* Title */}
-        <div className="mb-2 block">
-          <Label
-            htmlFor="title1"
-            value="Title"
-            className=" text-brownc"
-            required
-          />
-        </div>
-        <TextInput
-          id="title1"
-          placeholder="title"
-          required
-          type="text"
-          className=" text-brownc"
-          onChange={handleChangeTitle}
-          value={title}
-        />
-        <div className="max-w-md" id="textarea">
-          <div className="mb-2 block">
-            <Label htmlFor="description" value="Description" />
-          </div>
-          <Textarea
-            id="description"
-            placeholder="e.g. need to pick apples from tree"
-            required
-            rows={4}
-            className="text-sm"
-            onChange={handleChangeDescription}
-            value={description}
-          />
-        </div>
+            {/* Title */}
+            <div className="mb-2 block">
+              <Label
+                htmlFor="title1"
+                value="Title"
+                className=" text-brownc"
+                required
+              />
+            </div>
+            <TextInput
+              id="title1"
+              placeholder="Title"
+              required
+              type="text"
+              className=" text-brownc"
+              onChange={handleChangeTitle}
+              value={title}
+            />
+            <div className="max-w-md" id="textarea">
+              <div className="mb-2 block">
+                <Label htmlFor="description" value="Description" />
+              </div>
+              <Textarea
+                id="description"
+                placeholder="E.g. need to pick apples from tree"
+                required
+                rows={4}
+                className="text-sm"
+                onChange={handleChangeDescription}
+                value={description}
+              />
+            </div>
 
-        <Button
+            <Button
               onClick={handleFormSubmit}
               className="bg-pinkc"
               pill
@@ -153,8 +166,9 @@ export default function CreateListing() {
             >
               Post Listing
             </Button>
-      </form>
-    </div>)}
-  </div>
+          </form>
+        </div>
+      )}
+    </div>
   );
 }

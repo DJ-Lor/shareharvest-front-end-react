@@ -29,7 +29,6 @@ export default function Dashboard() {
     startSearch(category, postcode, title, currentPage).then((response) => {
       setListings(response.foundListings);
       setTotalPages(response.totalPages);
-      console.log(response.foundListings.length, response.totalPages);
       setLoading(false);
     });
   }
@@ -106,7 +105,7 @@ export default function Dashboard() {
             return (
               <div className="flex justify-center">
                 <Spinner size="lg" color="pink" />
-                </div>
+              </div>
             );
           } else if (searchPerformed && listings?.length === 0) {
             return (
