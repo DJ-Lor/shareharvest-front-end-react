@@ -2,6 +2,7 @@ import { Label, TextInput, Textarea, Button } from "flowbite-react";
 import { useState } from "react";
 import { createListing } from "../../helper/createListing";
 import { Navigate } from "react-router-dom";
+import UploadWidget from "../../components/UploadWidget";
 
 export default function CreateListing() {
   // Setup local state
@@ -52,21 +53,7 @@ export default function CreateListing() {
             </p>
 
             {/* File Upload */}
-
-            {/* <label
-          className="block mb-2 text-sm font-medium text-black"
-          htmlFor="multiple_files"
-        >
-          Upload Images
-        </label>
-        <input
-          className="block w-full text-sm text-black border border-gray-300 rounded-lg 
-    cursor-pointer bg-white"
-          id="multiple_files"
-          type="file"
-          multiple
-          required
-        /> */}
+            <UploadWidget />
 
             {/* Categories */}
             <div>
