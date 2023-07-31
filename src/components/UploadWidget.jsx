@@ -21,16 +21,14 @@ export default function UploadWidget(){
   }
   
   return(
-    <div className="bg-light border border-gray-300 block w-full p-2.5 rounded-lg">
-      <button 
-      type="submit"
-      onClick={onClickUpload}
-      className=" hover:bg-gray-500 text-brownc flex justify-center"
-      pill
-      >
-        Upload photo
-      </button>
-      {uploaded && <p>Uploaded successfully!</p>}
+    <div className="bg-light border border-gray-300 block w-full p-4 rounded-lg text-center">
+      <input
+        type="file"
+        id="fileInput"
+        name="filename"
+        onChange={onClickUpload}
+      />
+      {uploaded && <p className="text-greenc">Uploaded successfully!</p>}
     </div>
   )
 }
