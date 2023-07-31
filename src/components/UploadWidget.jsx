@@ -16,13 +16,13 @@ export default function UploadWidget(){
   },[])
   
   return(
-    <div>
+    <div className="border border-gray-300 block w-full p-2.5 rounded-lg">
       <Button 
       onClick={() => widgetRef.current.open()}
-      className="bg-pinkc hover:bg-pink2c"
+      className="bg-gray-300 hover:bg-gray-500 text-brownc flex justify-center"
       pill
       >
-        Upload 
+        Upload photo
       </Button>
     </div>
   )
