@@ -17,7 +17,11 @@ export default function UploadWidget(){
   
   return(
     <div>
-      <Button onClick={() => widgetRef.current.open()}>
+      <Button 
+      onClick={() => widgetRef.current.open()}
+      className="bg-pinkc hover:bg-pink2c"
+      pill
+      >
         Upload 
       </Button>
     </div>
