@@ -1,5 +1,4 @@
 import { useEffect, useRef } from "react"
-import { Button } from "flowbite-react";
 
 export default function UploadWidget(){
   const cloudinaryRef = useRef()
@@ -16,14 +15,15 @@ export default function UploadWidget(){
   },[])
   
   return(
-    <div className="border border-gray-300 block w-full p-2.5 rounded-lg">
-      <Button 
+    <div className="bg-light border border-gray-300 block w-full p-2.5 rounded-lg">
+      <button 
+      type="submit"
       onClick={() => widgetRef.current.open()}
-      className="bg-gray-300 hover:bg-gray-500 text-brownc flex justify-center"
+      className=" hover:bg-gray-500 text-brownc flex justify-center"
       pill
       >
         Upload photo
-      </Button>
+      </button>
     </div>
   )
 }
