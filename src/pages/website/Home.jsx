@@ -2,7 +2,7 @@ export default function Home() {
   return (
     <div className="flex flex-col lg:flex-row justify-center wrap">
       <img
-        src={`${process.env.PUBLIC_URL}/images/placeholder-home.jpeg`}
+        src={`${process.env.PUBLIC_URL}/images/home-basket.png`}
         alt="home"
         className="rounded-lg pb-8 lg:pr-14"
       />

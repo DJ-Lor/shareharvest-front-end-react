@@ -28,13 +28,14 @@ export default function UploadWidget(){
     className="bg-brownc text-light p-1 flex justify-center"
     pill
     >
-      Upload photo/s
+      Upload photo
     </button>
     {uploaded && <p className="text-greenc">Uploaded successfully!</p>}
   </div>
   )
 }
 
+//uploaded successfully should be based off something else, not click 
 
 // update the file name to reflect once uploaded in view 
 // edit the file name with added code for uniqueness before saving to atlas
