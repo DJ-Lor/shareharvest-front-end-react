@@ -9,7 +9,7 @@ export default function UploadWidget(){
     cloudinaryRef.current = window.cloudinary
     widgetRef.current = cloudinaryRef.current.createUploadWidget({
       cloudName:'drmryuqyy',
-      uploadPresent: 'shareharvestuploadpreset'
+      uploadPreset: 'shareharvestuploadpreset'
     }, function(error, result) {
       console.log(result);
     })
