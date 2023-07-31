@@ -21,14 +21,21 @@ export default function UploadWidget(){
   }
   
   return(
-    <div className="bg-light border border-gray-300 block w-full p-4 rounded-lg text-center">
-      <input
-        type="file"
-        id="fileInput"
-        name="filename"
-        onChange={onClickUpload}
-      />
-      {uploaded && <p className="text-greenc">Uploaded successfully!</p>}
-    </div>
+    <div className="bg-light border border-gray-300 block w-full p-4 rounded-lg text-center flex justify-center">
+    <button 
+    type="submit"
+    onClick={onClickUpload}
+    className="bg-brownc text-light p-1 flex justify-center"
+    pill
+    >
+      Upload photo/s
+    </button>
+    {uploaded && <p className="text-greenc">Uploaded successfully!</p>}
+  </div>
   )
 }
+
+
+// update the file name to reflect once uploaded in view 
+// edit the file name with added code for uniqueness before saving to atlas
+// display the image in view end point 
