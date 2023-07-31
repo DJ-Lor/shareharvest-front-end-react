@@ -4,10 +4,10 @@ export default function Home() {
       <img
         src={`${process.env.PUBLIC_URL}/images/home-basket.png`}
         alt="home"
-        className="rounded-lg pb-8 lg:pr-14"
+        className="rounded-lg pb-8 md:pr-14 md:pl-5 md:max-h-144"
       />
 
-      <div className="">
+      <div className="md:pt-8">
         <p className="text-3xl md:text-5xl font-bold">Your Local</p>
         <p className="text-3xl md:text-5xl font-bold">Community</p>
         <p className="text-pinkc text-3xl md:text-5xl font-bold">

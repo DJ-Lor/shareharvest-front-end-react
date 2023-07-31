@@ -25,16 +25,11 @@ export default function AboutUs() {
           </div>
         </div>
         <img
-          src={`${process.env.PUBLIC_URL}/images/placeholder.png`}
-          alt="green-chilli"
+          src={`${process.env.PUBLIC_URL}/images/pumpkin.png`}
+          alt="pumpkin"
           className="h-44 w-44 mb-4"
         />
       </div>
-      {/* <img
-        src={`${process.env.PUBLIC_URL}/images/placeholder-fruits.jpeg`}
-        alt="fruits"
-        className="rounded-lg mb-4"
-      /> */}
 
       <div className="bg-light rounded-lg px-4 md:px-12 py-10 flex flex-col lg:flex-row justify-center wrap items-center space-y-8 md:space-x-12">
         <p className="text-brownc text-lg">
@@ -44,8 +39,8 @@ export default function AboutUs() {
           for one to another who will find it useful.</strong>
         </p>
         <img
-          src={`${process.env.PUBLIC_URL}/images/placeholder.png`}
-          alt="green-chilli"
+          src={`${process.env.PUBLIC_URL}/images/basket-solo.png`}
+          alt="basket-solo"
           className="h-44 w-44 mb-4"
         />
 
@@ -56,8 +51,8 @@ export default function AboutUs() {
           your local community</strong> who have something to offer that you might need.
         </p>
         <img
-          src={`${process.env.PUBLIC_URL}/images/placeholder.png`}
-          alt="green-chilli"
+          src={`${process.env.PUBLIC_URL}/images/eggplant.png`}
+          alt="eggplant"
           className="h-44 w-44 mb-4"
         />
       </div>

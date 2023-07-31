@@ -78,9 +78,9 @@ export default function Footer() {
       <div className="flex flex-row wrap items-end justify-between">
         <p className="text-s">© Copyright 2023</p>
         <img
-          src={`${process.env.PUBLIC_URL}/images/placeholder.png`}
-          alt="green-chilli"
-          className="h-14 w-14"
+          src={`${process.env.PUBLIC_URL}/images/lemon.png`}
+          alt="lemon"
+          className="h-10"
         />
       </div>
     </div>

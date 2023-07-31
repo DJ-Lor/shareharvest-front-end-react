@@ -15,8 +15,8 @@ export default function CallToAction() {
         </p>
       </div>
       <img
-        src={`${process.env.PUBLIC_URL}/images/placeholder-veggie.jpeg`}
-        alt="veggies"
+        src={`${process.env.PUBLIC_URL}/images/veggies-long.png`}
+        alt="veggies-long"
         className="pt-8 md:h-72"
       />
     </div>

@@ -36,9 +36,18 @@ export default function NavigationBar() {
       {/* Mobile Menu Bar */}
 
       <div className="flex h-full w-full flex-col md:flex-row md:items-center">
+      
+      <div className="flex flex-row">
+      <img
+          src={`${process.env.PUBLIC_URL}/images/strawberry.png`}
+          alt="green-chilli"
+          className="h-8 w-7 pr-1 md:h-10 md:w-auto"
+        />
         <Link to="/" className="text-3xl md:text-4xl font-bold text-light">
           ShareHarvest
         </Link>
+        </div>
+
 
         <div
           className={`z-50 duration-400 md:static absolute bg-brownc md:min-h-fit min-h-[20vh] md:flex-1 left-0 md:justify-center ${
