@@ -40,6 +40,13 @@ export default function UploadWidget(){
       }
     );
   }, []);
+
+  useEffect(() => {
+    // This effect will run after each render and will log the state values
+    console.log("Updated File Image Names:", fileImageNames);
+    console.log("Updated Listing Image URLs:", listingImageUrls);
+  }, [fileImageNames, listingImageUrls]); // Add fileImageNames and listingImageUrls as dependencies
+  
   
 
   function onClickUpload() {
