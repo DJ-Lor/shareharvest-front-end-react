@@ -18,29 +18,29 @@ export default function UploadWidget(){
         uploadPreset: "shareharvestuploadpreset",
       },
       function (error, result) {
-        if (result && result.event === "success") {
-            // Create an array of URLs from the files list
-             const imageUrls = result.info.files.map(
-              (file) => file.uploadInfo.url
-            )
-            // Set the state with the array of URLs
-            setListingImageUrls(imageUrls)
-
-            // Create an array of image names 
-            const imageNames = result.info.files.map(
-              (file) => file.name
-            )
-          setFileImageNames(imageNames)
+        if (!error && result && result.event === "success") {
+          // Check if 'info' and 'files' properties exist before accessing them
+          const files = result.info?.files || [];
+          // Create an array of URLs from the files list
+          const imageUrls = files.map((file) => file.uploadInfo?.url);
+          // Set the state with the array of URLs
+          setListingImageUrls(imageUrls);
+  
+          // Create an array of image names
+          const imageNames = files.map((file) => file.name);
+          setFileImageNames(imageNames);
+  
           // Save the image name to MongoDB Atlas here
           // saveImageToMongoAtlas(result.info.original_filename);
-          setUploaded(true)
+          setUploaded(true);
         }
-        console.log(result)
-        console.log(fileImageNames)
-        console.log(listingImageUrls)
-        }
+        console.log(result);
+        console.log(fileImageNames);
+        console.log(listingImageUrls);
+      }
     );
   }, []);
+  
 
   function onClickUpload() {
     widgetRef.current.open();
