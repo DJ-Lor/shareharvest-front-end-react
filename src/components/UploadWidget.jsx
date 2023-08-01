@@ -17,13 +17,14 @@ export default function UploadWidget(){
         uploadPreset: "shareharvestuploadpreset",
       },
       function (error, result) {
-        // if (!error && result && result.event === "success") {
-        //   setListingImage(result.info.original_filename);
-        //   setUploaded(true);
-        //   // Save the image name to MongoDB Atlas here
-        //   saveImageToMongoAtlas(result.info.original_filename);
-        // }
+        if (!error && result && result.event === "success") {
+          setListingImage(result.info.files[0].uploadInfo.asset_id);
+          setUploaded(true);
+          // Save the image name to MongoDB Atlas here
+          // saveImageToMongoAtlas(result.info.original_filename);
+        }
         console.log(result)
+        console.log(result.info.files[0].uploadInfo.asset_id)
       }
     );
   }, []);
