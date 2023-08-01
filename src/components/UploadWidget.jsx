@@ -6,7 +6,8 @@ export default function UploadWidget(){
   const cloudinaryRef = useRef()
   const widgetRef = useRef()
   const [uploaded, setUploaded] = useState(false)
-  const [listingImage, setListingImage] = useState("")
+  const [listingImageUrl, setListingImageUrl] = useState("")
+  const [fileImageName, setFileImageName] = useState("")
 
 
   useEffect(() => {
@@ -18,13 +19,18 @@ export default function UploadWidget(){
       },
       function (error, result) {
         if (!error && result && result.event === "success") {
-          setListingImage(result.info.files[0].uploadInfo.asset_id);
-          setUploaded(true);
+          setListingImageUrl(result.info.files[0].uploadInfo.tags.url);
+          setFileImageName(result.info.files[0].uploadInfo.original_filename)
           // Save the image name to MongoDB Atlas here
           // saveImageToMongoAtlas(result.info.original_filename);
+   
         }
         console.log(result)
-        console.log(result.info.files[0].uploadInfo.asset_id)
+        console.log(result.info.files[0].uploadInfo.original_filename)
+        console.log(result.info.files[0].uploadInfo.tags.url)
+        if (result.event === "close") {
+          setUploaded(true)
+        }
       }
     );
   }, []);
@@ -58,7 +64,7 @@ export default function UploadWidget(){
     >
       Upload photo
     </button>
-    {uploaded && <p className="text-greenc flex text-center items-center">Uploaded successfully! Image Name: {listingImage}</p>}
+    {uploaded && <p className="text-greenc flex text-center items-center">Uploaded successfully! Image Name: {fileImageName}</p>}
   </div>
   )
 }
