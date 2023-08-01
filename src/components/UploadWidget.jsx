@@ -21,16 +21,16 @@ export default function UploadWidget(){
   }
   
   return(
-    <div className="bg-light border border-gray-300 block w-full p-4 rounded-lg text-center flex justify-center">
+    <div className="bg-light border border-gray-300 w-full p-4 rounded-lg text-center flex justify-center">
     <button 
     type="submit"
     onClick={onClickUpload}
-    className="bg-brownc text-light p-1 flex justify-center"
+    className="bg-gray-300 text-light p-2 flex justify-center rounded-lg"
     pill
     >
       Upload photo
     </button>
-    {uploaded && <p className="text-greenc">Uploaded successfully!</p>}
+    {uploaded && <p className="text-greenc flex text-center items-center">Uploaded successfully!</p>}
   </div>
   )
 }

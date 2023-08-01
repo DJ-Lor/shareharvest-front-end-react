@@ -169,7 +169,7 @@ export default function NavigationBar() {
             <Link
               to="/logout"
               onClick={handleButtonSubmit}
-              className="bg-pinkc hover:bg-pink2c text-white text-lg m:text-xl pt-2 pb-1 px-4 rounded-full"
+              className="bg-pinkc hover:bg-pink2c text-white text-lg pt-2 pb-1 px-4 rounded-full"
             >
               Log Out
             </Link>
