@@ -1,23 +1,49 @@
+
+import axios from "axios"
 import { useEffect, useRef, useState } from "react"
 
 export default function UploadWidget(){
   const cloudinaryRef = useRef()
   const widgetRef = useRef()
   const [uploaded, setUploaded] = useState(false)
+  const [listingImage, setListingImage] = useState("")
+
 
   useEffect(() => {
-    cloudinaryRef.current = window.cloudinary
-    widgetRef.current = cloudinaryRef.current.createUploadWidget({
-      cloudName:'drmryuqyy',
-      uploadPreset: 'shareharvestuploadpreset'
-    }, function(error, result) {
-      console.log(result);
-    })
-  },[])
+    cloudinaryRef.current = window.cloudinary;
+    widgetRef.current = cloudinaryRef.current.createUploadWidget(
+      {
+        cloudName: "drmryuqyy",
+        uploadPreset: "shareharvestuploadpreset",
+      },
+      function (error, result) {
+        if (!error && result && result.event === "success") {
+          setListingImage(result.info.original_filename);
+          setUploaded(true);
+          // Save the image name to MongoDB Atlas here
+          saveImageToMongoAtlas(result.info.original_filename);
+        }
+      }
+    );
+  }, []);
 
-  function onClickUpload(){
-    widgetRef.current.open()
-    setUploaded(true)
+  function onClickUpload() {
+    widgetRef.current.open();
+  }
+
+   // Function to save the image name to Mongo Atlas
+   async function saveImageToMongoAtlas(imageName) {
+    const config = {
+      headers: { "Content-Type": "application/json" },
+    };
+    try {
+      await axios.post(`${process.env.REACT_APP_API_URL}/listings/`, {
+        listingImage: listingImage, config
+      });
+      console.log("Image name saved to MongoDB:", imageName);
+    } catch (error) {
+      console.error("Error saving image name to MongoDB:", error);
+    }
   }
   
   return(
@@ -25,12 +51,12 @@ export default function UploadWidget(){
     <button 
     type="submit"
     onClick={onClickUpload}
-    className="bg-gray-300 text-light p-2 flex justify-center rounded-lg"
+    className="bg-gray-500 text-light p-2 flex justify-center rounded-lg"
     pill
     >
       Upload photo
     </button>
-    {uploaded && <p className="text-greenc flex text-center items-center">Uploaded successfully!</p>}
+    {uploaded && <p className="text-greenc flex text-center items-center">Uploaded successfully! Image Name: {listingImage}</p>}
   </div>
   )
 }
