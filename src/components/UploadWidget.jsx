@@ -18,7 +18,7 @@ export default function UploadWidget(){
         uploadPreset: "shareharvestuploadpreset",
       },
       function (error, result) {
-        if (!error && result && result.event === "success") {
+        if (result && result.event === "success") {
             // Create an array of URLs from the files list
              const imageUrls = result.info.files.map(
               (file) => file.uploadInfo.url
@@ -27,7 +27,7 @@ export default function UploadWidget(){
             setListingImageUrls(imageUrls)
 
             // Create an array of image names 
-            const imageNames = result.info.file.map(
+            const imageNames = result.info.files.map(
               (file) => file.name
             )
           setFileImageNames(imageNames)
