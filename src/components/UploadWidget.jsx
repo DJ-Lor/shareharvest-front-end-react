@@ -6,8 +6,8 @@ export default function UploadWidget(){
   const cloudinaryRef = useRef()
   const widgetRef = useRef()
   const [uploaded, setUploaded] = useState(false)
-  const [listingImageUrl, setListingImageUrl] = useState("")
-  const [fileImageName, setFileImageName] = useState("")
+  const [listingImageUrls, setListingImageUrls] = useState([])
+  const [fileImageNames, setFileImageNames] = useState([])
 
 
   useEffect(() => {
@@ -19,19 +19,26 @@ export default function UploadWidget(){
       },
       function (error, result) {
         if (!error && result && result.event === "success") {
-          setListingImageUrl(result.info.files[0].uploadInfo.tags.url);
-          setFileImageName(result.info.files[0].uploadInfo.original_filename)
+            // Create an array of URLs from the files list
+             const imageUrls = result.info.files.map(
+              (file) => file.uploadInfo.url
+            )
+            // Set the state with the array of URLs
+            setListingImageUrls(imageUrls)
+
+            // Create an array of image names 
+            const imageNames = result.info.file.map(
+              (file) => file.name
+            )
+          setFileImageNames(imageNames)
           // Save the image name to MongoDB Atlas here
           // saveImageToMongoAtlas(result.info.original_filename);
-   
-        }
-        console.log(result)
-        console.log(result.info.files[0].uploadInfo.original_filename)
-        console.log(result.info.files[0].uploadInfo.tags.url)
-        if (result.event === "close") {
           setUploaded(true)
         }
-      }
+        console.log(result)
+        console.log(fileImageNames)
+        console.log(listingImageUrls)
+        }
     );
   }, []);
 
@@ -64,7 +71,7 @@ export default function UploadWidget(){
     >
       Upload photo
     </button>
-    {uploaded && <p className="text-greenc flex text-center items-center">Uploaded successfully! Image Name: {fileImageName}</p>}
+    {uploaded && <p className="text-greenc flex text-center items-center">Uploaded successfully! Image Name: {fileImageNames}</p>}
   </div>
   )
 }
