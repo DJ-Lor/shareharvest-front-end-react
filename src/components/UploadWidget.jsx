@@ -79,7 +79,7 @@ export default function UploadWidget({func}) {
       </button>
       {uploaded && (
         <p className="text-greenc flex text-center items-center">
-          Uploaded successfully! Image Name: {fileImageNames}
+          Uploaded successfully! Image Name: {fileImageNames} Image URL: {fileImageNames}
         </p>
       )}
     </div>
