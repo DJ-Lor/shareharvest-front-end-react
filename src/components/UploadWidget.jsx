@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react"
 
-export default function UploadWidget(imgUrl) {
+export default function UploadWidget({func}) {
   const cloudinaryRef = useRef();
   const widgetRef = useRef();
   const [uploaded, setUploaded] = useState(false);
@@ -44,13 +44,13 @@ export default function UploadWidget(imgUrl) {
     // This effect will run after each render and will log the state values
     // console.log("Updated File Image Names:", fileImageNames);
     // console.log("Updated Listing Image URLs:", listingImageUrls);
+    // Call the 'func' prop with the listingImageUrls array
+    func(listingImageUrls);
   }, [fileImageNames, listingImageUrls]); // Add fileImageNames and listingImageUrls as dependencies
 
   function onClickUpload() {
     widgetRef.current.open();
   }
-
-  imgUrl.func(listingImageUrls)
 
   //  // Function to save the image name to Mongo Atlas
   //  async function saveImageToMongoAtlas(imageName) {
