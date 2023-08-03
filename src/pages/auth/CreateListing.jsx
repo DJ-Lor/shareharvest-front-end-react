@@ -12,6 +12,13 @@ export default function CreateListing() {
   const [description, setDescription] = useState("");
   const [loading, setLoading] = useState(false);
   const [listCreated, setListCreated] = useState(false);
+  const [imageUrlsPulled, setImageUrlsPulled ] = useState([]);
+
+  // Pulls image url/s data from the upload widget child
+  const imageUrls = (imageUrls) => {
+    console.log(imageUrls)
+    setImageUrlsPulled(imageUrls)
+  }
 
   const handleChangeCategory = (event) => {
     setCategory(event.target.value);
@@ -32,7 +39,7 @@ export default function CreateListing() {
   const handleFormSubmit = (event) => {
     event.preventDefault();
     setLoading(true);
-    createListing(category, postcode, title, description).finally(() => {
+    createListing(category, postcode, title, description, imageUrlsPulled).finally(() => {
       setLoading(false);
       setListCreated(true);
     });
@@ -53,7 +60,7 @@ export default function CreateListing() {
             </p>
 
             {/* File Upload */}
-            <UploadWidget />
+            <UploadWidget func={imageUrls}/>
 
             {/* Categories */}
             <div>

@@ -1,7 +1,6 @@
-import axios from "axios";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react"
 
-export default function UploadWidget() {
+export default function UploadWidget(imgUrl) {
   const cloudinaryRef = useRef();
   const widgetRef = useRef();
   const [uploaded, setUploaded] = useState(false);
@@ -27,7 +26,7 @@ export default function UploadWidget() {
           setListingImageUrls(imageUrls);
 
           // Create an array of image names
-          const imageNames = files.map((file) => file.name);
+          const imageNames = files.map((file, index) => (( index ? "," : "") + file.name));
           setFileImageNames(imageNames);
 
           // Save the image name to MongoDB Atlas here
@@ -50,6 +49,8 @@ export default function UploadWidget() {
   function onClickUpload() {
     widgetRef.current.open();
   }
+
+  imgUrl.func(listingImageUrls)
 
   //  // Function to save the image name to Mongo Atlas
   //  async function saveImageToMongoAtlas(imageName) {
