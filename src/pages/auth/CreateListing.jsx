@@ -59,8 +59,10 @@ export default function CreateListing() {
               Create New Listing
             </p>
 
-            {/* File Upload */}
-            <UploadWidget func={imageUrls}/>
+            {/* Future Development plan */}
+            {/* File Upload
+            <UploadWidget func={imageUrls}/> */}
+
 
             {/* Categories */}
             <div>

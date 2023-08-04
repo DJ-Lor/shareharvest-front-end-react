@@ -1,3 +1,5 @@
+// Future functionality in the works - not to be part of the project B assessment
+
 import { useEffect, useRef, useState } from "react"
 
 export default function UploadWidget({func}) {
@@ -79,7 +81,7 @@ export default function UploadWidget({func}) {
       </button>
       {uploaded && (
         <p className="text-greenc flex text-center items-center">
-          Uploaded successfully! Image Name: {fileImageNames} Image URL: {listingImageUrls}
+          Uploaded successfully! Image Name: {fileImageNames}
         </p>
       )}
     </div>
