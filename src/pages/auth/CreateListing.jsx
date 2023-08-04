@@ -2,7 +2,7 @@ import { Label, TextInput, Textarea, Button } from "flowbite-react";
 import { useState } from "react";
 import { createListing } from "../../helper/createListing";
 import { Navigate } from "react-router-dom";
-import UploadWidget from "../../components/UploadWidget";
+// import UploadWidget from "../../components/UploadWidget";
 
 export default function CreateListing() {
   // Setup local state
@@ -12,13 +12,14 @@ export default function CreateListing() {
   const [description, setDescription] = useState("");
   const [loading, setLoading] = useState(false);
   const [listCreated, setListCreated] = useState(false);
-  const [imageUrlsPulled, setImageUrlsPulled ] = useState([]);
+  // const [imageUrlsPulled, setImageUrlsPulled ] = useState([]);
 
+  // Future feature coded out
   // Pulls image url/s data from the upload widget child
-  const imageUrls = (imageUrls) => {
-    console.log(imageUrls)
-    setImageUrlsPulled(imageUrls)
-  }
+  // const imageUrls = (imageUrls) => {
+  //   console.log(imageUrls)
+  //   setImageUrlsPulled(imageUrls)
+  // }
 
   const handleChangeCategory = (event) => {
     setCategory(event.target.value);
@@ -39,7 +40,7 @@ export default function CreateListing() {
   const handleFormSubmit = (event) => {
     event.preventDefault();
     setLoading(true);
-    createListing(category, postcode, title, description, imageUrlsPulled).finally(() => {
+    createListing(category, postcode, title, description).finally(() => {
       setLoading(false);
       setListCreated(true);
     });
