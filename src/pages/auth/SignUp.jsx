@@ -111,14 +111,14 @@ export default function SignUp() {
                 </label>
                 <select
                   id="countries"
-                className="bg-white text-brownc border
+                className="bg-gray-100 text-gray-400 border
                 border-gray-300 text-sm rounded-lg
                 focus:ring-blue-500 focus:border-blue-500 
                 block w-full p-2.5 required"
                   onChange={handleChangePostcode}
                   value={postcode}
                 >
-                  <option value="">Select an option</option>
+                  <option value="">select an option</option>
                   <option>3000</option>
                   <option>3045</option>
                   <option>2000</option>
