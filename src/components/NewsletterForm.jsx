@@ -27,6 +27,7 @@ export default function NewsletterForm() {
   const handleFormSubmit = (event) => {
     event.preventDefault();
     createSubscriber(email)
+    console.log(email)
     setEmail("")
   };
 
@@ -34,7 +35,7 @@ export default function NewsletterForm() {
     <div className="max-w-md">
       <form onSubmit={handleFormSubmit}>
       <TextInput
-        id="email4"
+        id="email"
         placeholder="Email"
         rightIcon={HiArrowSmRight}
         type="email"
