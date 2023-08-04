@@ -6,11 +6,6 @@ import { Button } from "flowbite-react";
 
 export default function Profile() {
   const [user, setUser] = useState(null);
-  const [postcode, setPostcode] = useState("");
-
-  const handleChangePostcode = (event) => {
-    setPostcode(event.target.value);
-  };
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -64,35 +59,9 @@ export default function Profile() {
               <p>{user.email}</p>
             </div>
             <div className="flex flex-col items-center space-y-2">
-              {/* Post Code */}
-              <div>
-                <label
-                  htmlFor="countries"
-                  className="block mb-2 text-sm 
-                  font-medium text-brownc"
-                >
-                  Select Postcode
-                </label>
-                <select
-                  id="countries"
-                className="bg-white text-brownc border
-                border-gray-300 text-sm rounded-lg
-                focus:ring-blue-500 focus:border-blue-500 
-                block w-full p-2.5 required"
-                  onChange={handleChangePostcode}
-                  value={postcode}
-                >
-                  <option value="">Select an option</option>
-                  <option>3000</option>
-                  <option>3045</option>
-                  <option>2000</option>
-                  <option>5000</option>
-                  <option>2034</option>
-                  <option>3865</option>
-                </select>
-              </div>
-              {/* <p className="font-bold">Postcode</p>
-              <p>{user.postcode}</p> */}
+            
+              <p className="font-bold">Postcode</p>
+              <p>{user.postcode}</p>
             </div>
           </div>
         ) : (

@@ -100,7 +100,34 @@ export default function SignUp() {
               />
             </div>
             <div>
-              <div className="mb-2 block">
+                {/* Post Code */}
+                <div>
+                <label
+                  htmlFor="countries"
+                  className="block mb-2 text-sm 
+                  font-medium text-brownc"
+                >
+                  Select Postcode
+                </label>
+                <select
+                  id="countries"
+                className="bg-white text-brownc border
+                border-gray-300 text-sm rounded-lg
+                focus:ring-blue-500 focus:border-blue-500 
+                block w-full p-2.5 required"
+                  onChange={handleChangePostcode}
+                  value={postcode}
+                >
+                  <option value="">Select an option</option>
+                  <option>3000</option>
+                  <option>3045</option>
+                  <option>2000</option>
+                  <option>5000</option>
+                  <option>2034</option>
+                  <option>3865</option>
+                </select>
+              </div>
+              {/* <div className="mb-2 block">
                 <Label
                   htmlFor="postcode1"
                   value="Postcode"
@@ -115,7 +142,7 @@ export default function SignUp() {
                 value={postcode}
                 onChange={handleChangePostcode}
                 className=" text-brownc pb-4"
-              />
+              /> */}
             </div>
             <Button
               onClick={handleFormSubmit}
