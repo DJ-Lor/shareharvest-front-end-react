@@ -105,7 +105,7 @@ export default function SignUp() {
                 <label
                   htmlFor="countries"
                   className="block mb-2 text-sm 
-                  font-medium text-brownc"
+                 text-brownc font-bold"
                 >
                   Select Postcode
                 </label>
@@ -127,22 +127,6 @@ export default function SignUp() {
                   <option>3865</option>
                 </select>
               </div>
-              {/* <div className="mb-2 block">
-                <Label
-                  htmlFor="postcode1"
-                  value="Postcode"
-                  className="font-bold"
-                />
-              </div>
-              <TextInput
-                id="postcode1"
-                placeholder="e.g. 3000"
-                required
-                type="postcode"
-                value={postcode}
-                onChange={handleChangePostcode}
-                className=" text-brownc pb-4"
-              /> */}
             </div>
             <Button
               onClick={handleFormSubmit}
